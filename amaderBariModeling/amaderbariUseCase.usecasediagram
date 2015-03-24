@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="3af3f619-defe-4905-8bad-5cf423326cc4" name="AmaderBari" linkedPackageId="932bbd1c-5038-4857-b65b-872ec98b6dfe" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="9c9e2dbe-d0ea-4622-b1a4-5112c9081e3f">
+      <profileInstance Id="42909429-dc16-4aa0-90af-6cbbddb6d85b" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="95bd1c18-948f-4b8e-842d-541ec8e40656">
+      <profileInstance Id="b281d224-a306-488b-bde8-afbf091d4364" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="41209d25-c0d1-4523-93e2-6b85ecad2a59" name="registeredBariwala" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="732d1e4b-f245-4e04-a479-8fb6ee77a173" />
+        <targetEnds>
+          <association Id="01e7f298-659d-4b26-b5e5-12d57dd19352" isDerived="false" sourceEndRoleName="Bariwala" targetEndRoleName="AddRenter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b9408cad-0004-4839-9f9a-9c3c577037bc" LastKnownName="AddRenter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0f2cff58-0e9d-46ea-a479-8ec0bc9557f8" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f64062a6-6ada-411a-824a-5b088c4f3629" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b2623250-8a8b-4c2a-8f64-155323caf053" name="AddRenter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6e732209-2322-4c74-8228-fc62468337a1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1c6130ad-c8e9-4973-afe5-46e0030c5d60" />
+          </association>
+          <association Id="2ad112cd-17ba-4e5e-9a94-9fa53e888e58" isDerived="false" sourceEndRoleName="Bariwala" targetEndRoleName="AddFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1cb2525d-0938-4173-9d10-f0bc65db35ba" LastKnownName="AddFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a31fdfe8-5c7f-4f70-96a7-2da48f8905f0" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bfc0e9af-4945-45aa-aa0c-1aed2e665a3a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="81b3a949-7f6c-487f-9240-10e16f9f6149" name="AddFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c078e100-7220-49f9-a68d-7cf440f02e12" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="50542148-feeb-4068-8cad-f8710bbe3d53" />
+          </association>
+          <association Id="a9f5b2ed-e7af-4bfa-bfd1-5eca30030c85" isDerived="false" sourceEndRoleName="Bariwala" targetEndRoleName="generateSlip" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="352a23b3-f764-4d15-8988-de5d60dc3551" LastKnownName="generateSlip" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="087386c2-b51c-4113-a7bd-543688b95137" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5dfa56eb-4bff-48a1-ba63-358ae8efe27b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="660932cb-fe15-4a22-80f9-d5c42f9446ae" name="generateSlip" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="05765558-577a-47ec-b611-3d1b02b38a17" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5cafd688-02d7-4202-8532-17027b678a84" />
+          </association>
+          <association Id="d9606bb3-7cee-4652-ba04-a46e9bf4e750" isDerived="false" sourceEndRoleName="Bariwala" targetEndRoleName="RemoveRenter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5f87fcfe-7944-4f0b-956d-ec0395bb1ed5" LastKnownName="RemoveRenter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4a688c1-3c0b-4939-8dfc-971b0545c30d" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9c31c4a-90ea-44b8-b557-0afc9a0d4a59" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="10a81926-cdf3-4295-a6a8-78e5cf6cadce" name="RemoveRenter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cdf4bdf2-0c5c-4583-b735-0c7acd2ae0e6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="26bdfe03-d14d-4d84-a2ee-eb1f8e12aacd" />
+          </association>
+          <association Id="4c0fd75f-5630-49d3-98de-e224e568e598" isDerived="false" sourceEndRoleName="Bariwala" targetEndRoleName="exchangeFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="84bab034-662d-4347-9249-37beda3defb6" LastKnownName="exchangeFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b93214b9-8ccc-4d0c-82a1-83b5628b1b8e" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d596334c-d606-446e-8f99-a0c76ca1769e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5fda401-542f-4228-8634-6a42023c8e0e" name="exchangeFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="533eb326-f5ea-4e51-bfea-e926df76233c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="72f80f98-a57d-4973-b543-be7b4eba385a" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1cb2525d-0938-4173-9d10-f0bc65db35ba" name="AddFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2cd6dbf4-d0a5-4e00-8ae1-3b0e6bb15bb2" />
+        <subjects>
+          <subsystemMoniker Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b9408cad-0004-4839-9f9a-9c3c577037bc" name="AddRenter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bb93a8c0-09f1-4497-857c-acc1dfe0d40d" />
+        <subjects>
+          <subsystemMoniker Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f87fcfe-7944-4f0b-956d-ec0395bb1ed5" name="RemoveRenter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9e445633-c4d2-4793-8a78-a25a3722de1a" />
+        <additions>
+          <include Id="286ee4b1-a821-4e79-89a7-d40cc87120ce">
+            <useCaseMoniker Id="d7ecb0a3-df63-467e-98d7-c7dc7092855a" LastKnownName="generateAd" />
+            <elementDefinition Id="b58a3ede-35e3-4a13-9b47-e4ebf0d2e1d5" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="352a23b3-f764-4d15-8988-de5d60dc3551" name="generateSlip" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="57660262-f1ee-43a7-b75f-19d1e317e6ec" />
+        <subjects>
+          <subsystemMoniker Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="84bab034-662d-4347-9249-37beda3defb6" name="exchangeFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fff033a6-3edf-403c-b83c-33cff3c40b11" />
+        <additions>
+          <include Id="604c30fa-eadc-4ed8-9bd0-35e1c4b31de3">
+            <useCaseMoniker Id="41ae1d12-5c1b-4d3d-aad7-a60820793a14" LastKnownName="showAd" />
+            <elementDefinition Id="c3e6a5a2-d978-4d0a-8349-fa03f10eaa9b" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="287e1339-25b4-4e7b-8977-4cf6277e5aee" name="FlatManagement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="71e63746-df19-4f77-9dea-9f8f4c4f45ec" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="3e7d33f9-b0fd-46b3-9527-4f1fce9b9319" name="Guest" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="683ad035-857a-4306-97fe-e1ae770e715b" />
+        <targetEnds>
+          <association Id="479fd033-7d3c-4a7b-b300-8f72c547341e" isDerived="false" sourceEndRoleName="Guest" targetEndRoleName="showAd" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="41ae1d12-5c1b-4d3d-aad7-a60820793a14" LastKnownName="showAd" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="21bdef20-aff1-4b9b-85be-fdfe0b682d68" name="Guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6811267d-ba1e-4dff-af09-645e0f565990" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="af7ecbe5-53a7-4192-8291-60784e9c76d2" name="showAd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="98999fc5-941e-4e72-a421-2823a89b450e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1c92d8da-0a22-48ac-8ebc-1d07de172ab4" />
+          </association>
+          <association Id="6d2fc266-0c74-4cc3-b607-63a2e2f3f9d3" isDerived="false" sourceEndRoleName="Guest" targetEndRoleName="searchFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6ceb7d31-c925-4cea-aee2-91bea03766af" LastKnownName="searchFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fec1947f-cda1-4354-b857-37372f9fa739" name="Guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="374d6b21-834f-4ffb-bb59-f93bed8431b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4828a70c-7a63-4624-9ca7-8149cb3ba315" name="searchFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a5aa739f-2a73-46c4-a714-b4fa6c4aa16e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5c662d3a-9d52-444a-813d-6f6b8d6b81fc" />
+          </association>
+          <association Id="ff2ee3b2-b842-44ac-85ce-ef926e54425f" isDerived="false" sourceEndRoleName="Guest" targetEndRoleName="ContactBariwala" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a17d6fa8-a9ad-443f-9c2d-7f48532da9c9" LastKnownName="ContactBariwala" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a1500513-7c15-4a91-8bcf-b9a240337507" name="Guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d325427a-0cae-453b-9c68-afd01a4c5080" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="14d3934d-5405-4e1e-a4ba-a6ad20485501" name="ContactBariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4ea61e4f-9064-4632-8fe7-ea95a3440b4d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8e4bd695-ea97-4688-81f0-961aadb99328" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="388b2fc7-549f-4c4e-98a2-c98ffebeffb3" name="Renter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e01f78a6-7a3e-4854-8841-26cb0a629b25" />
+        <suppliersInternal>
+          <dependency Id="97f62fb3-c25c-454f-b72d-2cba27f3b145">
+            <useCaseMoniker Id="b9408cad-0004-4839-9f9a-9c3c577037bc" LastKnownName="AddRenter" />
+            <elementDefinition Id="763fd3a7-ab8b-4a8f-a2ba-0bbaf211018a" />
+          </dependency>
+          <dependency Id="62c0c4f6-5e5f-4081-99f9-a83b389e0e15">
+            <useCaseMoniker Id="5f87fcfe-7944-4f0b-956d-ec0395bb1ed5" LastKnownName="RemoveRenter" />
+            <elementDefinition Id="10760f42-f926-4ac8-989b-ba33bcf31e9a" />
+          </dependency>
+        </suppliersInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="3fbbf93d-df69-487f-835f-9a52699f4903" name="AdManagement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2dbc3669-3029-469b-947b-5a67ac192a12" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="41ae1d12-5c1b-4d3d-aad7-a60820793a14" name="showAd" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b5dc7156-b1d1-4366-8fd4-8a62804a1c06" />
+        <subjects>
+          <subsystemMoniker Id="3fbbf93d-df69-487f-835f-9a52699f4903" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6ceb7d31-c925-4cea-aee2-91bea03766af" name="searchFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="300845a1-3639-4178-910d-7a522cdfe3ec" />
+        <extendedCases>
+          <extend Id="71c68867-12da-402b-ac79-a9c34f57e608">
+            <useCaseMoniker Id="a17d6fa8-a9ad-443f-9c2d-7f48532da9c9" LastKnownName="ContactBariwala" />
+            <elementDefinition Id="fba6d42a-c6cc-43dc-8e07-6e8acc4af7cd" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="3fbbf93d-df69-487f-835f-9a52699f4903" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="a17d6fa8-a9ad-443f-9c2d-7f48532da9c9" name="ContactBariwala" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a3391964-0146-4e1d-9ded-5345cd91a0df" />
+        <targetEnds>
+          <association Id="22c43f4c-6d66-4646-8d72-cb03d24380da" isDerived="false" sourceEndRoleName="messageBariwala" targetEndRoleName="Bariwala" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="41209d25-c0d1-4523-93e2-6b85ecad2a59" LastKnownName="registeredBariwala" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fee1d9f4-3853-4c0d-a3ab-9e7c6e382444" name="messageBariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3443a3d9-828b-48bf-8a35-2872215b0b24" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7b691cf1-8c06-4a37-abc8-32ede08a60ee" name="Bariwala" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8fe665eb-0145-4639-8a63-309b2b559eeb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f803d951-66e7-4e0b-af36-2a11d3a643da" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="3fbbf93d-df69-487f-835f-9a52699f4903" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="ad7bea2d-e93e-4042-9cfa-c41f9354304a" name="System" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7746e9e-82b2-4b44-bfbf-edb10b102fb2" />
+        <targetEnds>
+          <association Id="2a20fb96-59bf-443e-81aa-12a656e08465" isDerived="false" sourceEndRoleName="System" targetEndRoleName="generateAd" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d7ecb0a3-df63-467e-98d7-c7dc7092855a" LastKnownName="generateAd" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="876729ef-4ac7-46a2-a201-435b74bdc80a" name="System" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="255e93f7-89c7-41c1-8f5c-a695d485208c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="14f06811-3129-4b5e-8c0c-9f04567575f9" name="generateAd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0ec10edf-963e-494b-b04a-4658589f9047" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8b3e43e2-ec79-42ee-a61e-29e4e31b8186" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="d7ecb0a3-df63-467e-98d7-c7dc7092855a" name="generateAd" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6e01a76d-af3b-4589-b1f0-97c5641015ca" />
+        <suppliersInternal>
+          <dependency Id="9697a109-ffbd-4d5d-b9e6-def38cf13ef2">
+            <useCaseMoniker Id="41ae1d12-5c1b-4d3d-aad7-a60820793a14" LastKnownName="showAd" />
+            <elementDefinition Id="b9a3a3c6-ee2b-46ff-8c64-32d141e8c46b" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="3fbbf93d-df69-487f-835f-9a52699f4903" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="932bbd1c-5038-4857-b65b-872ec98b6dfe" name="SDPProject">
+    <elementDefinition Id="6375bdc2-18eb-438f-b5e7-947db994094a" />
+  </package>
+</useCaseModelRoot>
