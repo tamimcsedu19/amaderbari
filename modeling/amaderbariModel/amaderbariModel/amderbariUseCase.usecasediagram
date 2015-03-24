@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d789170b-4625-4065-aab1-a9f7fa16900a" name="amderbariUseCase" linkedPackageId="0ba2a74a-5261-4935-aaa4-92f67131c970" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="0ee5d416-a04b-469e-b897-f66557fce1ef">
+      <profileInstance Id="5aa5069d-5095-4530-aad5-a615de42dfb3" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="26c777b9-0205-4766-b225-11c29f5b7180">
+      <profileInstance Id="78c83e07-bcd7-4225-926b-1d554a5352ea" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" name="FlatManagement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0beeabc1-e307-4b5b-abd2-2b8e0c5cccdc" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="073d900a-a59c-4724-a1d7-d5631a7a8961" name="AdManagement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dbe6d48f-f54c-4ac0-b142-d965654930f2" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="885fdbd9-ff71-4955-87da-b7d56ff22756" name="AddFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dc5e2ba8-a20e-4c8b-9777-82815c9d9ed3" />
+        <subjects>
+          <subsystemMoniker Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2de79780-1160-48b4-9f57-8be3b45bfd56" name="AddRenter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="10c5b873-09f8-4a13-8f07-b69e44e3fe03" />
+        <subjects>
+          <subsystemMoniker Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="dfb5bd5b-dcdd-457a-9bb7-576b77767c2a" name="generateSlip" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6ff555ab-3c6a-40d1-ab85-cd3f0dab8511" />
+        <subjects>
+          <subsystemMoniker Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="034f8016-a22b-4640-944c-226c9f27dea8" name="RemoveRenter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="065b3ae3-a03a-4e6c-92d7-9ca698439598" />
+        <additions>
+          <include Id="6df27917-f021-4f81-b516-5ba52eb9e922">
+            <useCaseMoniker Id="0f3c54c3-f2d4-4b2a-942f-b20009ddf92c" LastKnownName="generateAd" />
+            <elementDefinition Id="758ba424-4b5e-4d18-b0f4-61c3038b01d7" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e0e1b20d-b817-455e-812f-44e79c240edb" name="exchangeFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="681ce7d8-fbb1-4fd1-9e58-3bed66413c5a" />
+        <additions>
+          <include Id="774f24d9-e66c-4a60-ac2c-78b2ee5398a4">
+            <useCaseMoniker Id="0f3c54c3-f2d4-4b2a-942f-b20009ddf92c" LastKnownName="generateAd" />
+            <elementDefinition Id="0fcbb4ff-6a7b-49bc-ae10-0bdb8578456e" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="82a56749-3ad2-47bb-83dc-bac1d60a35a8" LastKnownName="FlatManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="0f3c54c3-f2d4-4b2a-942f-b20009ddf92c" name="generateAd" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dfcbdbeb-4508-4396-aa9e-638445215ffb" />
+        <extendedCases>
+          <extend Id="ef6c9a82-b45d-45eb-baa6-fe074ad6e6d2">
+            <useCaseMoniker Id="71738057-fa3f-4543-9d00-6565fb2b12a7" LastKnownName="searchFlat" />
+            <elementDefinition Id="a44c3d68-cf30-40c5-9238-96c6a02c04f4" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="073d900a-a59c-4724-a1d7-d5631a7a8961" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="71738057-fa3f-4543-9d00-6565fb2b12a7" name="searchFlat" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ef7fbe0b-655e-4ed6-83ca-0bc0729715e2" />
+        <extendedCases>
+          <extend Id="718735b1-e04a-47d8-9290-99f7e61caa22">
+            <useCaseMoniker Id="75f7a02f-680d-4b30-bfd1-3888ae27a6aa" LastKnownName="contactLandlord" />
+            <elementDefinition Id="efcaff36-c0ca-4e62-bd76-c59cb37427c3" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="073d900a-a59c-4724-a1d7-d5631a7a8961" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="75f7a02f-680d-4b30-bfd1-3888ae27a6aa" name="contactLandlord" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="71a44e89-c74f-4161-881a-58180c83f1db" />
+        <targetEnds>
+          <association Id="36291f0b-3c3f-46de-81ee-446f7d783274" isDerived="false" sourceEndRoleName="contactLandlord" targetEndRoleName="registeredLandlord" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2362b998-ca27-44db-8567-55dc65b09b5f" LastKnownName="registeredLandlord" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3726e2a3-79db-4357-9a15-5619fc8d8234" name="contactLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="79a0396f-ad64-4cc3-bc92-c1543e918051" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fab7a657-90c2-4740-bbe0-b01a23c906ad" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6f5386a5-6afa-4789-b4b8-bc836fb13079" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1a9c5647-d5dd-4ea5-9c97-d1e5fb20a1d0" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="073d900a-a59c-4724-a1d7-d5631a7a8961" LastKnownName="AdManagement" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="2362b998-ca27-44db-8567-55dc65b09b5f" name="registeredLandlord" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="18368fa1-6964-4243-888b-849c02faaf31" />
+        <targetEnds>
+          <association Id="f72500d9-71ec-4bc6-803a-4648bfb8d0af" isDerived="false" sourceEndRoleName="registeredLandlord" targetEndRoleName="AddFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="885fdbd9-ff71-4955-87da-b7d56ff22756" LastKnownName="AddFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="23155c32-a0bf-4585-96f2-747da86da6a2" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9abb657f-6598-4ee3-9474-79ba0eec2195" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9419bd97-560b-48f6-b0ac-7565c3fb7362" name="AddFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3fc9ba3d-8016-4ba4-a918-4ca1bc1aef61" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="71612b6d-fad6-4693-9de1-a5cf23dfd5fa" />
+          </association>
+          <association Id="e79e315c-bd4b-4271-abdb-7a5354179339" isDerived="false" sourceEndRoleName="registeredLandlord" targetEndRoleName="AddRenter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2de79780-1160-48b4-9f57-8be3b45bfd56" LastKnownName="AddRenter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a3488c8d-9558-4845-bebf-5a6dcf39c0df" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c46d4b67-7a3b-4f71-ab35-0c8b2746cbb7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8955ae58-5b68-4df1-a54c-9113e47b136f" name="AddRenter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="04449a64-eaab-4b16-ae76-db32b6a6a7b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6eb354a6-e648-4435-b085-368445b8bea2" />
+          </association>
+          <association Id="078c69de-82ce-4607-be48-7d893e6e0ebc" isDerived="false" sourceEndRoleName="registeredLandlord" targetEndRoleName="generateSlip" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="dfb5bd5b-dcdd-457a-9bb7-576b77767c2a" LastKnownName="generateSlip" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d10536b6-f2e0-4082-ba85-6f53890523ef" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="76de1313-39f3-467f-9e6e-a6384c26d18f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="898fc409-92c6-4764-add4-bda0e1af0f42" name="generateSlip" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="caa50b1d-3fad-44b0-8bf1-4fafafb8bb35" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d3e751ed-308e-4898-b7d6-b1f6631f718e" />
+          </association>
+          <association Id="5c65c4e6-2aa4-4852-84f0-ae0007746797" isDerived="false" sourceEndRoleName="registeredLandlord" targetEndRoleName="RemoveRenter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="034f8016-a22b-4640-944c-226c9f27dea8" LastKnownName="RemoveRenter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5561fa0c-e9dc-46ce-acfc-0802c3cbd01d" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="48013c46-36bd-475b-9520-a7094d097ddc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="882d34da-1c82-47a0-816c-ce253f16cfde" name="RemoveRenter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="20fbe22d-dc12-4731-8f36-d3ce50749e34" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="54b0ea71-3bc9-4615-a3ed-807554ba3049" />
+          </association>
+          <association Id="3afe55e0-da54-4a30-b629-86028b817b48" isDerived="false" sourceEndRoleName="registeredLandlord" targetEndRoleName="exchangeFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e0e1b20d-b817-455e-812f-44e79c240edb" LastKnownName="exchangeFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aa966053-d180-4d83-8ad4-6dfae5ea3f2a" name="registeredLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b756f775-25ea-4224-b5fb-871a2d7b0916" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3376f501-9228-4459-aec2-5f2c7e780abe" name="exchangeFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0e65680d-49da-42fb-8a9d-76491cb791a9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8058d9e6-3fcc-41c5-b06b-16445ec336eb" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="c6f70f72-1376-410c-9a5b-0c9384bb4972" name="system" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7b9a70ff-5713-406b-b299-7cf5e2a6a885" />
+        <targetEnds>
+          <association Id="b97a91f1-04e7-4fb3-a5a2-2518ded23bc9" isDerived="false" sourceEndRoleName="system" targetEndRoleName="generateAd" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0f3c54c3-f2d4-4b2a-942f-b20009ddf92c" LastKnownName="generateAd" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0cf2cd89-2c4a-4373-9665-aa115ca90ef7" name="system" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="95d41eb9-1a07-4519-a11f-d2116008e390" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="56bc7ea0-9a93-4321-b31b-c55f1a1ff129" name="generateAd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="63281c13-ef82-4d6e-8356-15746e5a8f93" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e6ab40ef-bce8-4bc1-bbba-f28c0ce8dd66" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="4402796f-4d79-421a-849a-7ecfe3a96a33" name="renter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e25a88a0-7e66-4581-b34e-68bd70dc6baa" />
+        <suppliersInternal>
+          <dependency Id="75cc5ea6-a1a5-4d78-9a34-3fb055fcfc6d">
+            <useCaseMoniker Id="2de79780-1160-48b4-9f57-8be3b45bfd56" LastKnownName="AddRenter" />
+            <elementDefinition Id="2951e7f1-c8da-475b-a930-18026cf9e523" />
+          </dependency>
+          <dependency Id="c843bdf2-e330-4d3c-adcc-4c73110033eb">
+            <useCaseMoniker Id="034f8016-a22b-4640-944c-226c9f27dea8" LastKnownName="RemoveRenter" />
+            <elementDefinition Id="5fe78a07-c2a0-4bcc-b3aa-792efe3c0467" />
+          </dependency>
+        </suppliersInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="98931930-8572-4460-aa75-4ba01512bb89" name="guest" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fa313ad8-cb18-49fa-b8be-e6c3c0bcabd5" />
+        <targetEnds>
+          <association Id="47e3bfd6-9fad-4766-b9ba-33312058ab18" isDerived="false" sourceEndRoleName="guest" targetEndRoleName="searchFlat" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="71738057-fa3f-4543-9d00-6565fb2b12a7" LastKnownName="searchFlat" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="95ce1f19-75a4-4dff-9948-6ed4b314646e" name="guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0b377563-68c9-4154-a31d-54ee7b09bc60" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="62328c2f-72b2-4447-b40a-50a0ce28de13" name="searchFlat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="92e9ed31-998e-4599-8a0b-4b949a9aa364" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e4ad8300-db21-4e13-a33a-a6ed599c8bb0" />
+          </association>
+          <association Id="4b841b3a-654c-40e3-b37e-ce6e3b058cd5" isDerived="false" sourceEndRoleName="guest" targetEndRoleName="contactLandlord" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="75f7a02f-680d-4b30-bfd1-3888ae27a6aa" LastKnownName="contactLandlord" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b95dd1bd-3865-4640-920c-4cf9f3901a00" name="guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="df53e8ed-56e8-40cf-8764-f16bb88bde8a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ad173e65-bf76-4e95-878c-1c52083615aa" name="contactLandlord" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="25708de4-13ef-4ee9-81ad-1628c683ee4d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b6b01c65-13e4-414a-a332-82740a49f673" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="0ba2a74a-5261-4935-aaa4-92f67131c970" name="amaderbariModel">
+    <elementDefinition Id="47f47c52-3910-4673-81d7-29cee72ed0e6" />
+  </package>
+</useCaseModelRoot>
