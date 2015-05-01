@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f99c7d3b-8ec1-411a-a704-56017fd0d339" name="UMLClassDiagram1" linkedPackageId="47b7760e-d2c3-48da-8e9d-1a79c6fe76ad" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="f1d60f4c-6610-4d72-b169-987ee75efc2f" name="View">
+        <elementDefinition Id="0bf3d739-8266-4a9c-ad24-8a901fef0de6" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="48f24194-d01a-4702-b0b4-885558cc933c" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="229cea5b-7095-4800-82a9-b0610c7a7cc5" />
+              <ownedAttributesInternal>
+                <property Id="e9ecb158-d95d-40ce-8f13-95ad436c4190" name="username" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a4960b08-8230-4020-acd5-ef6699f3072a" />
+                </property>
+                <property Id="7255867d-e755-4cf6-be64-abfec565f984" name="firstName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="04c34300-fc89-4369-8ce5-5fea69f2f8d7" />
+                </property>
+              </ownedAttributesInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="455da032-c397-4195-96f1-864283a43a35" name="HomepageManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="fefd1b71-d439-4a9a-94c8-fc97b518e625" />
+              <ownedOperationsInternal>
+                <operation Id="4b19cdda-3ff3-44a3-9f84-42d8c47d1948" name="searchFlat" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="eea0e8a6-7eb4-49f2-aa60-e3a363c4dc02" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="47b7760e-d2c3-48da-8e9d-1a79c6fe76ad" name="amaderbariModel">
+    <elementDefinition Id="47f47c52-3910-4673-81d7-29cee72ed0e6" />
+    <profileInstances>
+      <packageHasProfileInstances Id="a4a24d20-df44-49e6-9eaf-c26a2db2fad3">
+        <profileInstance Id="f8c6714c-dc5e-4727-ba47-2a7df4c1da5c" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="d16b39fd-1f88-437b-80b8-fb3288725e74">
+        <profileInstance Id="67478ab3-b0a7-4132-9f5a-5d9bd3b8205c" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
