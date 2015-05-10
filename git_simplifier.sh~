@@ -9,6 +9,7 @@ com="command"
 while [ "$com" != "exit" ]
 do
 	read -p "Command : " com
+
 	if [ $com == "push" ]
 	then
 		echo "PUSHING ALL FILES TO REMOTE(MASTER)"
@@ -23,9 +24,8 @@ do
 		git pull https://github.com/tamimcsedu19/amaderbari.git
 
 	else
+		#clear
 		echo "wrong command... try again"
 	fi
-	read com
-	clear
 done
 

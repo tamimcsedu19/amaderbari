@@ -4,15 +4,13 @@ echo "PULLING AMADER_BARI PROJECT FROM GIT"
 git pull https://github.com/tamimcsedu19/amaderbari.git
 
 echo "POSSIBLE COMMAND : exit, push, pull"
-read -p "Command : " com
-
-if [ $com == "exit" ]
-then
-	echo "$com"
-fi
+com="command"
 
 while [ "$com" != "exit" ]
 do
+	read -p "Command : " com
+ 	clear
+
 	if [ $com == "push" ]
 	then
 		echo "PUSHING ALL FILES TO REMOTE(MASTER)"
@@ -29,7 +27,5 @@ do
 	else
 		echo "wrong command... try again"
 	fi
-	clear
-	read -p "Command : " com
 done
 
