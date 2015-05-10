@@ -4,7 +4,7 @@ echo "PULLING AMADER_BARI PROJECT FROM GIT"
 git pull https://github.com/tamimcsedu19/amaderbari.git
 
 echo "POSSIBLE COMMAND : exit, push, pull"
-$com = "command"
+com="command"
 
 while [ "$com" != "exit" ]
 do
