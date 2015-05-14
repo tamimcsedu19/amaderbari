@@ -1,5 +1,5 @@
 package sdp.ratajo.amaderbari.config;
-
+import sdp.ratajo.amaderbari.dao.*;
 import javax.sql.DataSource;
 
 
@@ -42,8 +42,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         return dataSource;
     }
      
-//    @Bean
-//    public ContactDAO getContactDAO() {
-//        return new ContactDAOImpl(getDataSource());
-//    }
+    @Bean
+    public FlatSearcher FlatSearcher() {
+        return new FlatSearcherCityDivision();
+    }
 }
