@@ -27,11 +27,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-		MvcConfiguration mv = new MvcConfiguration();
-		
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(mv.getDataSource());
-		String sql="CREATE TABLE contact (contact_id int(11) NOT NULL AUTO_INCREMENT,) ENGINE=InnoDB AUTO_INCREMENT=25;";
-		jdbcTemplate.execute(sql);
+
 		
 			
 		logger.info("Welcome home! The client locale is {}.", locale);
