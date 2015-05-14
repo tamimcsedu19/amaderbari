@@ -17,7 +17,7 @@ do
 		git add -A
 		read -p "Enter Commit Message: " msg
 		git commit -m "$msg"
-		git push
+		git push https://github.com/tamimcsedu19/amaderbari.git
 
 	elif [ $com == "pull" ] 
 	then
