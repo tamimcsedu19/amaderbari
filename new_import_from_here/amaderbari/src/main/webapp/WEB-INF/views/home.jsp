@@ -24,12 +24,12 @@
                 <div id="searchdiv" class="col-md-6">
                     <form name="search-box" action="searchFlat" method="GET" class="form-inline" role="form">
                         <div class="form-group">
-                            <label for="Division"></label>
-                            <input type="text" class="form-control" name="division" placeholder="Enter division">
+                            <label for="col1val"></label>
+                            <input type="text" class="form-control" name="col1val" placeholder="Enter division">
                         </div>
                         <div class="form-group">
-                            <label for="city"></label>
-                            <input type="text" class="form-control" name="city" placeholder="Enter city">
+                            <label for="col1val"></label>
+                            <input type="text" class="form-control" name="col2val" placeholder="Enter city">
                         </div>
                         <button type="submit" class="btn btn-default">Search Flats</button>
                     </form>

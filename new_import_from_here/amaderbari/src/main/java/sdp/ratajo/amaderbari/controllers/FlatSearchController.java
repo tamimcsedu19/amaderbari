@@ -9,23 +9,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import sdp.ratajo.amaderbari.dao.FlatSearcher;
-
+import sdp.ratajo.amaderbari.bll.*;
 @Controller
 public class FlatSearchController {
 	@Autowired
 	FlatSearcher searcher;
+	@Autowired
+	AddressFactory adfac;
 	@RequestMapping(value = "searchFlat", method = RequestMethod.GET)
 	public String houses(Model model,HttpServletRequest req) {
 	
 		
-		String division = (String)req.getParameter("division");
-		String city    	= (String)req.getParameter("city");
-		model.addAttribute("division", division);
-		model.addAttribute("city",city);
-		System.out.println(division +" "+city);
-		return "flats";
+		String country = "Bangladesh";
+		String col1val = (String)req.getParameter("col1val");
+		String col2val    	= (String)req.getParameter("col2val");
+		Address addr = adfac.make(country, col1val, col2val);
+		System.out.print(addr.addressVals.get(1));
+		searcher.search(addr);
+		
+		
+		return "showflats";
 
 	}
 	

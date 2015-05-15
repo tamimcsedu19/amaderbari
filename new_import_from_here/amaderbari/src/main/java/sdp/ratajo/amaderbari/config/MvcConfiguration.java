@@ -1,5 +1,6 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
+import sdp.ratajo.amaderbari.bll.*; 
 import javax.sql.DataSource;
 
 
@@ -35,7 +36,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://www.db4free.net:3306/amaderbaridata");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/ratajo");
         dataSource.setUsername("ratajo");
         dataSource.setPassword("ratajo");
          
@@ -44,6 +45,10 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
      
     @Bean
     public FlatSearcher FlatSearcher() {
-        return new FlatSearcherCityDivision();
+        return new FlatSearcherCityDivision(getDataSource());
+    }
+    @Bean
+    public AddressFactory AddressFactory() {
+        return new AddressFactory();
     }
 }
