@@ -2,13 +2,13 @@ package sdp.ratajo.amaderbari.dto.addresspack;
 
 import sdp.ratajo.amaderbari.HomeController;
 
-public class UttaraAddress extends BangladeshAddress {
+public class UttaraTypeAddress extends BangladeshTypeAddress {
 
 	protected String sector;
 	protected String road_no;
 	protected Apartment apartment;
 	
-	public UttaraAddress(String country, String division, String district,
+	public UttaraTypeAddress(String country, String division, String district,
 			String thana_upazilla, String area, String sector, String road_no,
 			Apartment apartment) {
 		super(country, division, district, thana_upazilla, area);

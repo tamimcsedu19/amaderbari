@@ -1,12 +1,15 @@
 package sdp.ratajo.amaderbari.dto.addresspack;
 
-public class BangladeshAddress extends Address {
+public class BangladeshTypeAddress extends Address {
+	
+	
+	
 	protected String division;
 	protected String district;
 	protected String thana_upazilla;
 	protected String area;
 	
-	public BangladeshAddress(String country, String division, String district,
+	public BangladeshTypeAddress(String country, String division, String district,
 			String thana_upazilla, String area) {
 		super(country);
 		this.division = division;

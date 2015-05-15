@@ -8,13 +8,14 @@ import java.util.Map.Entry;
 
 import javax.swing.text.html.parser.Entity;
 
-public class Address {
+public abstract class Address {
 	protected ArrayList<String> addressKey;
 	protected ArrayList<String> addressVal;
 	protected int currentIndex;
 	
 	protected String country;
-	
+	public Address()
+	{}
 	public Address(String country){
 		addressKey = new ArrayList<String>();
 		addressVal = new ArrayList<String>();
