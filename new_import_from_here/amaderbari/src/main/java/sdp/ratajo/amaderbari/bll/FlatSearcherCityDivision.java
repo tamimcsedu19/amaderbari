@@ -17,6 +17,16 @@ import sdp.ratajo.amaderbari.dto.*;
 import sdp.ratajo.amaderbari.dto.flatpack.*;
 import sdp.ratajo.amaderbari.dto.addresspack.*;
 
+/*
+ * how about this
+ * 1. country      ?      ?
+ * 2. bangladesh division ?
+ * 3. bangladesh dhaka    city
+ * 4. bangladesh dhaka    uttara
+ * 5. search / add more specific area(add more field)
+ * 
+ */
+
 public class FlatSearcherCityDivision implements FlatSearcher {
 	
 	private JdbcTemplate jdbcTemplate;
@@ -88,12 +98,21 @@ public class FlatSearcherCityDivision implements FlatSearcher {
 	}
 	
 	
-	public List<String> getFlatIdsBylabels(CountryColumnLabels clabels,Address addr)
+	public List<String> getFlatIdsBylabels(CountryColumnLabels clabels, Address addr)
 	{
 		String tablename = clabels.getCountry()+"Address";
-		String sql = "SELECT FlatID FROM "+tablename+
-				" WHERE "+clabels.getColumn1Label()+"='"+addr.addressVals.get(1)+"'"+
-				" and "  +clabels.getColumn2Label()+"='"+addr.addressVals.get(2)+"'";
+		
+		/**
+		 * tamim please change your data base according the change
+		 * for more info look up address and apartment class
+		 * and must thnik about my comment
+		 * 
+		 * 
+		 */
+		
+		String sql = "SELECT addressId FROM "+tablename+
+				" WHERE "+clabels.getColumn1Label()+"='"+addr.getAddressArgument1()+"'"+
+				" and "  +clabels.getColumn2Label()+"='"+addr.getAddressArgument2()+"'";
 		List<String> flatIds=jdbcTemplate.query(sql, new RowMapper<String>() {
 
 			@Override
