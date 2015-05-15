@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Search Results</title>
 </head>
 <body>
-	You were searching for ${division } and ${city}
+	You were searching for ${addr.getDivision() } and ${addr.getCity() }
 </body>
 </html>

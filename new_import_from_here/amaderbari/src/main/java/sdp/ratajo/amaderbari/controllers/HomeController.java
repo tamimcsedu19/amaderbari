@@ -1,4 +1,4 @@
-package sdp.ratajo.amaderbari;
+package sdp.ratajo.amaderbari.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;

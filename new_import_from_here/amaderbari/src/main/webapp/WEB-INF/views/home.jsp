@@ -20,17 +20,27 @@
             </div>
             <div class="row">
 
-                <div class="col-md-3"></div>
-                <div id="searchdiv" class="col-md-6">
+                <div class="col-md-2"></div>
+                <div id="searchdiv" class="col-md-8">
                     <form name="search-box" action="searchFlat" method="GET" class="form-inline" role="form">
+                        <div class="form-group">
+                            <label for="col1val"></label>
+                            <input type="text" class="form-control" name="country" placeholder="Enter country">
+                        </div>
+                        
                         <div class="form-group">
                             <label for="col1val"></label>
                             <input type="text" class="form-control" name="col1val" placeholder="Enter division">
                         </div>
+                        
                         <div class="form-group">
                             <label for="col1val"></label>
                             <input type="text" class="form-control" name="col2val" placeholder="Enter city">
                         </div>
+                        
+                        <br>
+                        <br>
+                        <div class="col-md-4"></div>
                         <button type="submit" class="btn btn-default">Search Flats</button>
                     </form>
 
