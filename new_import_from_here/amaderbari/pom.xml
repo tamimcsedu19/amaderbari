@@ -14,7 +14,19 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+		<!-- Form Validation -->
 		
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.1.0.Final</version>
+
+		</dependency>
+		<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>5.0.1.Final</version>
+ </dependency>
 		 <!-- CGLib for @Configuration -->
 		<dependency>
         	<groupId>cglib</groupId>
@@ -48,8 +60,7 @@
 	<artifactId>spring-webmvc</artifactId>
 	<version>4.1.6.RELEASE</version>
 </dependency>
-
-				
+			
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
