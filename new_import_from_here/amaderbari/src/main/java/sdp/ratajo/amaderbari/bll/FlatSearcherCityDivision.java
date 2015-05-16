@@ -28,9 +28,7 @@ import sdp.ratajo.amaderbari.dto.addresspack.*;
  */
 
 public class FlatSearcherCityDivision implements FlatSearcher {
-	
 	private JdbcTemplate jdbcTemplate;
-	
 
 	public FlatSearcherCityDivision(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -42,13 +40,18 @@ public class FlatSearcherCityDivision implements FlatSearcher {
 	
 		System.out.println("I am implementing the searching of Flats by city and division");
 		String country = addr.getCountry(); // Gets The countryname
-		CountryColumnLabels cur = getColumnLabels(country); //Gets the column labels for that particular Country
-		/**
-		 * This method gets the flat ID's which matches the city and division
-		 */
-		List<String> flatIds = getFlatIdsBylabels(cur,addr);
-		System.out.print(flatIds.get(0));
 		
+		//Gets the column labels for that particular Country
+		CountryColumnLabels countryColumnLabel = getColumnLabels(country);
+		
+		// Get address ids from the address
+		List<String> addressIds = getAddressIds(countryColumnLabel, addr);
+		System.out.print(addressIds.get(0));
+		
+		// Get flat ids from the address ids
+		List<Flat> flatIds = null;
+		if(addressIds.size()>0) flatIds = getFlatIds(addressIds);
+		else System.out.println("NO FLAT ID");
 		
 		/** 
 		 * Jony Please complete the method for searching of a Flat by ID
@@ -56,35 +59,29 @@ public class FlatSearcherCityDivision implements FlatSearcher {
 		 * 
 		 */
 		
-		
-		
-		
-		
-		
-		
-		
-		return null;
+		return flatIds;
 	}
-	
-	
-	public CountryColumnLabels getColumnLabels(String country)
+
+	private CountryColumnLabels getColumnLabels(String country)
 	{
 		
-		String sql = "SELECT Column1,Column2 FROM CountryColumnMapper WHERE Country='"+country+"'";
+		String sql = "SELECT Column1, Column2 FROM CountryColumnMapper WHERE Country='"+country+"'";
 		List<CountryColumnLabels> clabels = jdbcTemplate.query(sql,new RowMapper<CountryColumnLabels>() {
 			 
 	        @Override
 	        public CountryColumnLabels mapRow(ResultSet rs, int rowNum) throws SQLException 
 	        {
-	        	CountryColumnLabels aCountry = new CountryColumnLabels();
-	 
-	            aCountry.setColumn1Label(rs.getString("Column1"));
-	            aCountry.setColumn2Label(rs.getString("Column2"));
-	            return aCountry;
+	        	CountryColumnLabels Countrylabel = new CountryColumnLabels();
+	        	
+	        	Countrylabel.setCountry(rs.getString("Column0"));
+	        	Countrylabel.setColumn1Label(rs.getString("Column1"));
+	        	Countrylabel.setColumn2Label(rs.getString("Column2"));
+	            return Countrylabel;
 	        }
 	 
 	    });
 		
+		// how ??
 		if(clabels.size() == 0)
 		{
 			CountryColumnLabels BangladeshLabels =  new CountryColumnLabels();
@@ -93,39 +90,61 @@ public class FlatSearcherCityDivision implements FlatSearcher {
 			BangladeshLabels.setCountry("Bangladesh");
 			return BangladeshLabels;
 		}
+		
+//		if(clabels.size() == 0){
+//			System.out.println("NO COUNTRY LABEL FOUND FOR THE SPECEFIC COUNTRY");
+//			return null;
+//		}
+		
 		return clabels.get(0);
-	  
 	}
 	
 	
-	public List<String> getFlatIdsBylabels(CountryColumnLabels clabels, Address addr)
+	private List<String> getAddressIds(CountryColumnLabels clabels, Address addr)
 	{
 		String tablename = clabels.getCountry()+"Address";
-		
-		/**
-		 * tamim please change your data base according the change
-		 * for more info look up address and apartment class
-		 * and must thnik about my comment
-		 * 
-		 * 
-		 */
 		
 		String sql = "SELECT addressId FROM "+tablename+
 				" WHERE "+clabels.getColumn1Label()+"='"+addr.getAddressArgument1()+"'"+
 				" and "  +clabels.getColumn2Label()+"='"+addr.getAddressArgument2()+"'";
-		List<String> flatIds=jdbcTemplate.query(sql, new RowMapper<String>() {
-
+		
+		List<String> addressId=jdbcTemplate.query(sql, new RowMapper<String>() {
 			@Override
 			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
 				
-				return rs.getString("FlatID");
+				return rs.getString("addressId");
 			
 			}
-			
-			
 		});
-		return flatIds;
+		return addressId;
+	}
+	
+	private List<Flat> getFlatIds(List<String> addressIds) {
+		String tablename = "Flats";
 		
+		String sqltemplate = "SELECT * FROM "+ tablename +
+				" WHERE addressId" + "='";
+		
+		// get the string data from flats
+		List<String> flatDatas = null;
+		for(String addressId : addressIds){
+			String sql = sqltemplate + addressId + "'";
+			flatDatas.addAll(jdbcTemplate.query(addressIds + addressIds.get(0) + "'", new RowMapper<String>() {
+				@Override
+				public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+					
+					return rs.getString("addressId");
+				
+				}
+			}));
+		}
+		
+		List<Flat> flats = null;
+		// create flats from strings
+		for(String flatData: flatDatas){
+			flats.add(new Flat(flatData));
+		}
+		return flats;
 	}
 
 }

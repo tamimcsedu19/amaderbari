@@ -19,6 +19,12 @@ public class Flat {
 	private int no_of_kitchen;
 	private double flat_rate;
 	
+	public Flat(){}
+	
+	public Flat(String flatData){
+		
+	}
+	
 	//constructor
 	public Flat(String flat_id, String type, String owner_national_id,
 			String renter_national_id, Address address, String map_url,

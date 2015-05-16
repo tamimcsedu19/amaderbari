@@ -40,12 +40,12 @@
             </div>
 
             <div class="row row2">
-
                 <div class="col-md-1"></div>
                 <div id="searchdiv" class="col-md-8">
                     <form name="search-box" action="searchFlat" method="GET" class="form-inline" role="form">
+                        
                         <div class="form-group">
-                            <label for="col1val"></label>
+                            <label for="country"></label>
                             <input type="text" class="form-control" name="country" placeholder="Enter country">
                         </div>
 
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="col1val"></label>
+                            <label for="col2val"></label>
                             <input type="text" class="form-control" name="col2val" placeholder="Enter city">
                         </div>
 

@@ -23,7 +23,7 @@ public class FlatSearchController {
 	@Autowired
 	AddressFactory adfac;
 	@RequestMapping(value = "searchFlat", method = RequestMethod.GET)
-	public ModelAndView houses(ModelAndView modelAndView,HttpServletRequest req) {
+	public ModelAndView houses(ModelAndView modelAndView, HttpServletRequest req) {
 	
 		String country = "Bangladesh";
 		String col1val = (String)req.getParameter("col1val");
@@ -32,8 +32,11 @@ public class FlatSearchController {
 		
 		Address addr = adfac.make(country, col1val, col2val);
 		//System.out.print(addr.addressVals.get(1));
+		
+		
 		List<Flat> foundFlats = searcher.search(addr);
 		
+		modelAndView.addObject("addr", addr);
 		modelAndView.setViewName("showflats");
 		
 		
