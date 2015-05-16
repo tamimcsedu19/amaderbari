@@ -27,10 +27,10 @@ import sdp.ratajo.amaderbari.dto.addresspack.*;
  * 
  */
 
-public class FlatSearcherCityDivision implements FlatSearcher {
+public class FlatSearcherBy3parameter implements FlatSearcher {
 	private JdbcTemplate jdbcTemplate;
 
-	public FlatSearcherCityDivision(DataSource dataSource) {
+	public FlatSearcherBy3parameter(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
@@ -125,25 +125,36 @@ public class FlatSearcherCityDivision implements FlatSearcher {
 		String sqltemplate = "SELECT * FROM "+ tablename +
 				" WHERE addressId" + "='";
 		
-		// get the string data from flats
-		List<String> flatDatas = null;
+		// get the flats from the adressIds
+		List<Flat> flats = null;
 		for(String addressId : addressIds){
 			String sql = sqltemplate + addressId + "'";
-			flatDatas.addAll(jdbcTemplate.query(addressIds + addressIds.get(0) + "'", new RowMapper<String>() {
+			
+			flats.addAll(jdbcTemplate.query(addressIds + addressIds.get(0) + "'", new RowMapper<Flat>() {
 				@Override
-				public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				public Flat mapRow(ResultSet rs, int rowNum) throws SQLException {
+					Flat  aflat = new Flat();
 					
-					return rs.getString("addressId");
-				
+					aflat.setFlat_id(rs.getString(0));
+					aflat.setAddressId(rs.getString(1));
+					aflat.setType(rs.getString(2));
+					aflat.setOwner_national_id(rs.getString(3));
+					aflat.setRenter_national_id(rs.getString(4));
+					aflat.setMap_url(rs.getString(5));
+					aflat.setImage_id(rs.getString(6));
+					aflat.setSquare_foot(rs.getString(7));
+					aflat.setNo_of_bed(rs.getInt(8));
+					aflat.setNo_of_bath(rs.getInt(9));
+					aflat.setNo_of_balcony(rs.getInt(10));
+					aflat.setNo_of_dining(rs.getInt(11));
+					aflat.setNo_of_drawing_room(rs.getInt(12));
+					aflat.setNo_of_kitchen(rs.getInt(13));
+					aflat.setFlat_rate(rs.getDouble(14));
+					return aflat;
 				}
 			}));
 		}
 		
-		List<Flat> flats = null;
-		// create flats from strings
-		for(String flatData: flatDatas){
-			flats.add(new Flat(flatData));
-		}
 		return flats;
 	}
 

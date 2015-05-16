@@ -4,10 +4,10 @@ import sdp.ratajo.amaderbari.dto.addresspack.Address;
 
 public class Flat {
 	private String flat_id;
+	private String addressId;
 	private String type; //eg - duplex, single, family
 	private String owner_national_id;
 	private String renter_national_id;
-	private Address address;
 	private String map_url;
 	private String image_id;
 	private String square_foot;
@@ -20,34 +20,6 @@ public class Flat {
 	private double flat_rate;
 	
 	public Flat(){}
-	
-	public Flat(String flatData){
-		
-	}
-	
-	//constructor
-	public Flat(String flat_id, String type, String owner_national_id,
-			String renter_national_id, Address address, String map_url,
-			String image_id, String square_foot, int no_of_bed, int no_of_bath,
-			int no_of_balcony, int no_of_dining, int no_of_drawing_room,
-			int no_of_kitchen, double flat_rate) {
-		super();
-		this.flat_id = flat_id;
-		this.type = type;
-		this.owner_national_id = owner_national_id;
-		this.renter_national_id = renter_national_id;
-		this.address = address;
-		this.map_url = map_url;
-		this.image_id = image_id;
-		this.square_foot = square_foot;
-		this.no_of_bed = no_of_bed;
-		this.no_of_bath = no_of_bath;
-		this.no_of_balcony = no_of_balcony;
-		this.no_of_dining = no_of_dining;
-		this.no_of_drawing_room = no_of_drawing_room;
-		this.no_of_kitchen = no_of_kitchen;
-		this.flat_rate = flat_rate;
-	}
 
 	public String getFlat_id() {
 		return flat_id;
@@ -55,6 +27,14 @@ public class Flat {
 
 	public void setFlat_id(String flat_id) {
 		this.flat_id = flat_id;
+	}
+
+	public String getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
 
 	public String getType() {
@@ -79,14 +59,6 @@ public class Flat {
 
 	public void setRenter_national_id(String renter_national_id) {
 		this.renter_national_id = renter_national_id;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
 	}
 
 	public String getMap_url() {
@@ -168,19 +140,7 @@ public class Flat {
 	public void setFlat_rate(double flat_rate) {
 		this.flat_rate = flat_rate;
 	}
-
-	@Override
-	public String toString() {
-		return "Flat [flat_id=" + flat_id + ", type=" + type
-				+ ", owner_national_id=" + owner_national_id
-				+ ", renter_national_id=" + renter_national_id + ", address="
-				+ address + ", map_url=" + map_url + ", image_id=" + image_id
-				+ ", square_foot=" + square_foot + ", no_of_bed=" + no_of_bed
-				+ ", no_of_bath=" + no_of_bath + ", no_of_balcony="
-				+ no_of_balcony + ", no_of_dining=" + no_of_dining
-				+ ", no_of_drawing_room=" + no_of_drawing_room
-				+ ", no_of_kitchen=" + no_of_kitchen + ", flat_rate="
-				+ flat_rate + "]";
-	}
+	
+	
 
 }

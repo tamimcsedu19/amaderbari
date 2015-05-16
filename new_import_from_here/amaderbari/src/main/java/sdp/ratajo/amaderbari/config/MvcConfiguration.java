@@ -45,7 +45,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
      
     @Bean
     public FlatSearcher FlatSearcher() {
-        return new FlatSearcherCityDivision(getDataSource());
+        return new FlatSearcherBy3parameter(getDataSource());
     }
     @Bean
     public AddressFactory AddressFactory() {
