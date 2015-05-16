@@ -26,8 +26,8 @@ public class SignUpController {
 	@RequestMapping(value = "signup", method = RequestMethod.POST)
 	public ModelAndView signemUp(ModelAndView modelAndView,HttpServletRequest req) {
 		
-		
-		
+		modelAndView.setViewName("success");
+		System.out.print("Post method of signup controller is executed");
 		return modelAndView;
 
 	}
