@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.servlet.tags.EscapeBodyTag;
 
 import sdp.ratajo.amaderbari.dto.*;
 import sdp.ratajo.amaderbari.dto.flatpack.*;
@@ -53,12 +54,6 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		if(addressIds.size()>0) flatIds = getFlatIds(addressIds);
 		else System.out.println("NO FLAT ID");
 		
-		/** 
-		 * Jony Please complete the method for searching of a Flat by ID
-		 * From the tables CountryFlats(i.e BangladeshFlats)
-		 * 
-		 */
-		
 		return flatIds;
 	}
 
@@ -73,9 +68,9 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 	        {
 	        	CountryColumnLabels Countrylabel = new CountryColumnLabels();
 	        	
-	        	Countrylabel.setCountry(rs.getString("Column0"));
-	        	Countrylabel.setColumn1Label(rs.getString("Column1"));
-	        	Countrylabel.setColumn2Label(rs.getString("Column2"));
+	        	Countrylabel.setCountry(rs.getString(0));
+	        	Countrylabel.setColumn1Label(rs.getString(1));
+	        	Countrylabel.setColumn2Label(rs.getString(2));
 	            return Countrylabel;
 	        }
 	 
@@ -130,7 +125,7 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		for(String addressId : addressIds){
 			String sql = sqltemplate + addressId + "'";
 			
-			flats.addAll(jdbcTemplate.query(addressIds + addressIds.get(0) + "'", new RowMapper<Flat>() {
+			flats.addAll(jdbcTemplate.query(sql, new RowMapper<Flat>() {
 				@Override
 				public Flat mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Flat  aflat = new Flat();
@@ -143,13 +138,9 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 					aflat.setMap_url(rs.getString(5));
 					aflat.setImage_id(rs.getString(6));
 					aflat.setSquare_foot(rs.getString(7));
-					aflat.setNo_of_bed(rs.getInt(8));
-					aflat.setNo_of_bath(rs.getInt(9));
-					aflat.setNo_of_balcony(rs.getInt(10));
-					aflat.setNo_of_dining(rs.getInt(11));
-					aflat.setNo_of_drawing_room(rs.getInt(12));
-					aflat.setNo_of_kitchen(rs.getInt(13));
-					aflat.setFlat_rate(rs.getDouble(14));
+					aflat.setRent(rs.getDouble(8));
+					aflat.setExtraData(rs.getString(9));
+					
 					return aflat;
 				}
 			}));
