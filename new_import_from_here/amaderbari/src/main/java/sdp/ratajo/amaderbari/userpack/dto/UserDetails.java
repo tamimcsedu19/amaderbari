@@ -1,6 +1,7 @@
-package sdp.ratajo.amaderbari.dto;
+package sdp.ratajo.amaderbari.userpack.dto;
 
-public class User {
+
+public class UserDetails {
 	private String national_id;
 	private String user_name;
 	private String password;
@@ -10,10 +11,10 @@ public class User {
 	private String religion;
 	private String occupation;
 	
-	public User(String national_id, String user_name, String password,
+	public UserDetails(String national_id, String user_name, String password,
 			String name, String email, String contact_no, String religion,
 			String occupation) {
-		super();
+		
 		this.national_id = national_id;
 		this.user_name = user_name;
 		this.password = password;

@@ -1,15 +1,22 @@
-package sdp.ratajo.amaderbari.dao;
+package sdp.ratajo.amaderbari.userpack.dao;
+
 import java.util.List;
+
+
 
 /** This interface is for searching Flats have methods for searhing flats **/
 import sdp.ratajo.amaderbari.dto.*;
+import sdp.ratajo.amaderbari.userpack.dto.User;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.util.List;
+
 import javax.sql.DataSource;
 public interface UserDAO {
 	
 	public void save(User user);
 	public void delete(int id);
-	//public void update()
+	public void update();
 	
 }

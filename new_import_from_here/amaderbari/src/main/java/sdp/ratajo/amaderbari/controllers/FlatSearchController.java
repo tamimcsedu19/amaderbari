@@ -1,8 +1,10 @@
 package sdp.ratajo.amaderbari.controllers;
 
+import java.util.List;
 import java.util.Locale;
 
 import sdp.ratajo.amaderbari.dto.addresspack.*;
+import sdp.ratajo.amaderbari.dto.flatpack.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,10 +32,10 @@ public class FlatSearchController {
 		
 		Address addr = adfac.make(country, col1val, col2val);
 		//System.out.print(addr.addressVals.get(1));
-		searcher.search(addr);
+		List<Flat> foundFlats = searcher.search(addr);
 		
 		modelAndView.setViewName("showflats");
-		modelAndView.addObject(addr);
+		
 		
 		return modelAndView;
 
