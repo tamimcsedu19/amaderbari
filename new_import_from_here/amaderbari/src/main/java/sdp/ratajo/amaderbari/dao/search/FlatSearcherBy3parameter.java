@@ -1,4 +1,4 @@
-package sdp.ratajo.amaderbari.bll;
+package sdp.ratajo.amaderbari.dao.search;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

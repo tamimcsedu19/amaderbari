@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Flat {
-	private String flat_id;
+	private String flatId;
 	private String addressId;
-	private String owner_email;
-	private String renter_email;
-	private String map_url;
-	private List<String> image_ids;
-	private String square_foot;
+	private String ownerEmail;
+	private String renterEmail;
+	private String mapUrl;
+	private List<String> imageIds;
+	private String squareFoot;
 	private double rent;
 	private List<String> extraData;
 	
@@ -19,106 +19,88 @@ public class Flat {
 	
 	public Flat(){}
 
-	public Flat(String flat_id, String addressId, String owner_email,
-			String renter_email, String map_url, List<String> image_ids,
-			String square_foot, double rent, List<String> extraData) {
+	public Flat(String flatId, String addressId, String ownerEmail,
+			String renterEmail, String mapUrl, List<String> imageIds,
+			String squareFoot, double rent, List<String> extraData) {
 		super();
-		this.flat_id = flat_id;
+		this.flatId = flatId;
 		this.addressId = addressId;
-		this.owner_email = owner_email;
-		this.renter_email = renter_email;
-		this.map_url = map_url;
-		this.image_ids = image_ids;
-		this.square_foot = square_foot;
+		this.ownerEmail = ownerEmail;
+		this.renterEmail = renterEmail;
+		this.mapUrl = mapUrl;
+		this.imageIds = imageIds;
+		this.squareFoot = squareFoot;
 		this.rent = rent;
 		this.extraData = extraData;
 	}
 
-
-	public String getFlat_id() {
-		return flat_id;
+	public String getFlatId() {
+		return flatId;
 	}
 
-
-	public void setFlat_id(String flat_id) {
-		this.flat_id = flat_id;
+	public void setFlatId(String flatId) {
+		this.flatId = flatId;
 	}
-
 
 	public String getAddressId() {
 		return addressId;
 	}
 
-
 	public void setAddressId(String addressId) {
 		this.addressId = addressId;
 	}
 
-
-	public String getOwner_email() {
-		return owner_email;
+	public String getOwnerEmail() {
+		return ownerEmail;
 	}
 
-
-	public void setOwner_email(String owner_email) {
-		this.owner_email = owner_email;
+	public void setOwnerEmail(String ownerEmail) {
+		this.ownerEmail = ownerEmail;
 	}
 
-
-	public String getRenter_email() {
-		return renter_email;
+	public String getRenterEmail() {
+		return renterEmail;
 	}
 
-
-	public void setRenter_email(String renter_email) {
-		this.renter_email = renter_email;
+	public void setRenterEmail(String renterEmail) {
+		this.renterEmail = renterEmail;
 	}
 
-
-	public String getMap_url() {
-		return map_url;
+	public String getMapUrl() {
+		return mapUrl;
 	}
 
-
-	public void setMap_url(String map_url) {
-		this.map_url = map_url;
+	public void setMapUrl(String mapUrl) {
+		this.mapUrl = mapUrl;
 	}
 
-
-	public List<String> getImage_ids() {
-		return image_ids;
+	public List<String> getImageIds() {
+		return imageIds;
 	}
 
-
-	public void setImage_ids(List<String> image_ids) {
-		this.image_ids = image_ids;
+	public void setImageIds(List<String> imageIds) {
+		this.imageIds = imageIds;
 	}
 
-
-	public String getSquare_foot() {
-		return square_foot;
+	public String getSquareFoot() {
+		return squareFoot;
 	}
 
-
-	public void setSquare_foot(String square_foot) {
-		this.square_foot = square_foot;
+	public void setSquareFoot(String squareFoot) {
+		this.squareFoot = squareFoot;
 	}
-
 
 	public double getRent() {
 		return rent;
 	}
 
-
 	public void setRent(double rent) {
 		this.rent = rent;
 	}
 
-
 	public List<String> getExtraData() {
 		return extraData;
 	}
-
 
 	public void setExtraData(List<String> extraData) {
 		this.extraData = extraData;
