@@ -1,10 +1,11 @@
 package sdp.ratajo.amaderbari.dto.flatpack;
 
-public class Image {
+public class Image{
 	private String image_id;
 	private String image_url;
 	private String image_type;
 	
+	public Image(){}
 	
 	public Image(String image_id, String image_url, String image_type) {
 		super();
