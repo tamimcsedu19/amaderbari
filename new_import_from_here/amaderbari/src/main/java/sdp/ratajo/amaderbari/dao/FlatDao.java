@@ -11,11 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
-import sdp.ratajo.amaderbari.userpack.dto.User;
 
 public class FlatDao extends CommonDao {
-	
-	JdbcTemplate jdbcTemplate;
 	public FlatDao(DataSource dataSource)
 	{
 		super(dataSource);
@@ -26,7 +23,7 @@ public class FlatDao extends CommonDao {
 		Flat flat = (Flat) obj;
 		String sql = "INSERT INTO Flats (flatId, addressId, ownerEmail, renterEmail,"
 				+ " mapUrl, imageIds, squareFoot, rent, extraData)"
-            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try{
 			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getOwnerEmail(),
 					flat.getRenterEmail(), flat.getMapUrl(), flat.getImageIds(), flat.getSquareFoot(),

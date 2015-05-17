@@ -1,29 +1,37 @@
 package sdp.ratajo.amaderbari.dao;
 
-public class ImageDao implements CommonDaoInterface {
+import javax.sql.DataSource;
+
+public class ImageDao extends CommonDao {
+
+	public ImageDao(DataSource dataSource) {
+		super(dataSource);
+	}
 
 	@Override
-	public boolean save(Object obj) {
+	boolean save(Object obj) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean update(Object obj) {
+	boolean update(Object obj) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Object obj) {
+	boolean delete(String id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Object get(String id) {
+	Object get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

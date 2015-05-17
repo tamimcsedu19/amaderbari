@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class CommonDao {
-	private volatile static JdbcTemplate jdbcTemplate;
+	protected volatile static JdbcTemplate jdbcTemplate;
 	public CommonDao(DataSource dataSource){
 		if(jdbcTemplate == null){
 			synchronized (dataSource) {
