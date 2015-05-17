@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -12,12 +13,9 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 
 public class UserDAOImpl implements UserDAO{
-
+	@Autowired
 	JdbcTemplate jdbcTemplate;
-	public UserDAOImpl(DataSource dataSource)
-	{
-		jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+	
 	@Override
 	public void save(User user) {
 		String sql = "INSERT INTO Users (email,first_name,last_name,password,national_id,contact_no,religion,occupation)"

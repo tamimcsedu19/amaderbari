@@ -5,7 +5,20 @@ to tamim:
 
 
 to jony:
+1. Using variadic function for SearchFlats.search(String ...strings);
+2. For searchBy3 the implemented function would lokk like this
+List<Flats> search(String Country,String col1,String col2)
+{
 
+    //Todo
+}
+and for userSearch like this
+
+List<Flat> search(Sring user)
+{
+    //Todo
+
+}
 
 
 

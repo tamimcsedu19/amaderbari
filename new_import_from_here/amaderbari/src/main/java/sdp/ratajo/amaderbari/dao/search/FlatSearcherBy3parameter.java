@@ -37,12 +37,16 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 
 
 	@Override
-	public List<Flat> search(Address addr) {
+	public List<Flat> search(String ...strings) {
 	
 		System.out.println("I am implementing the searching of Flats by city and division");
-		String country = addr.getCountry(); // Gets The countryname
 		
-		//Gets the column labels for that particular Country
+		String country = strings[0];
+		
+		/**
+		 * strings[0] is country
+		 * strings[1] is colval1 i.e Division value such as 'Dhaka' and strings[2] is colval2 i.e city value like 'Uttara'
+		 */
 		CountryColumnLabels countryColumnLabel = getColumnLabels(country);
 		
 		// Get address ids from the address
