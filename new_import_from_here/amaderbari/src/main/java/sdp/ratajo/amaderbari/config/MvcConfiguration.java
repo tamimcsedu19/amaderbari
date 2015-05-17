@@ -1,5 +1,6 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
+import org.springframework.jdbc.core.*;
 import sdp.ratajo.amaderbari.bll.*; 
 import javax.sql.DataSource;
 import sdp.ratajo.amaderbari.userpack.dao.*;
@@ -44,17 +45,25 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         return dataSource;
     }
     @Bean
-    public UserDAO UserDAO()
+    public JdbcTemplate JdbcTemplate()
     {
-		return new UserDAOImpl(getDataSource());
-    	
+    	return new JdbcTemplate(getDataSource());
     }
     @Bean
-    public FlatSearcher FlatSearcher() {
-        return new FlatSearcherBy3parameter(getDataSource());
+    public UserDAO UserDAO()
+    {
+		return new UserDAOImpl();
+    	
     }
+//    @Bean
+//    public FlatSearcher FlatSearcher() {
+//        return new FlatSearcherBy3parameter(getDataSource());
+//    }
     @Bean
     public AddressFactory AddressFactory() {
         return new AddressFactory();
     }
+    
+    
+    
 }
