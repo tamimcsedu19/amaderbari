@@ -3,16 +3,16 @@ package sdp.ratajo.amaderbari.dto.addresspack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdressLable {
+public class AddressLabel {
 	protected String labelId;
 	protected String country;
 	protected String addressArgument1;
 	protected String addressArgument2;
 	protected List<String> extraAddressArgument;
 	
-	public AdressLable(){}
+	public AddressLabel(){}
 	
-	public AdressLable(String labelId, String country, String addressArgument1,
+	public AddressLabel(String labelId, String country, String addressArgument1,
 			String addressArgument2, List<String> extraAddressArgument) {
 		super();
 		this.labelId = labelId;

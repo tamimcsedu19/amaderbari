@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public void update(User user) {
-		String sql = "UPDATE Users SET email=?,first_name=?,last_name=?,password=?,national_id=?,contact_no=?,religion,occupation=?)";
+		String sql = "UPDATE Users SET email=?,first_name=?,last_name=?,password=?,national_id=?,contact_no=?,religion,occupation=?";
 	jdbcTemplate.update(sql,user.getEmail(),user.getFirst_name(),user.getLast_name(),user.getPassword(),user.getNational_id(),user.getContact_no()
 						,user.getReligion(),user.getOccupation());
 		

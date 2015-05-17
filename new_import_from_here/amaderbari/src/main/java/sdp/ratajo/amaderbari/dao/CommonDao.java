@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class CommonDao {
 	protected volatile static JdbcTemplate jdbcTemplate;
-	public CommonDao(DataSource dataSource){
+	protected CommonDao(DataSource dataSource){
 		if(jdbcTemplate == null){
 			synchronized (dataSource) {
 				if(jdbcTemplate == null){

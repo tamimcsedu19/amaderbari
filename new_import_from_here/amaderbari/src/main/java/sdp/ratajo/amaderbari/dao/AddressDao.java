@@ -10,7 +10,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import sdp.ratajo.amaderbari.dto.addresspack.Address;
-import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 
 public class AddressDao extends CommonDao {
 
@@ -74,6 +73,7 @@ public class AddressDao extends CommonDao {
 			public Address extractData(ResultSet rs) throws SQLException,
 					DataAccessException {
 				 if (rs.next()) {
+					 
 					 Address address = new Address();
 					 address.setAddressId(rs.getString(0));
 					 address.setLabelId(rs.getString(1));

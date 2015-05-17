@@ -1,57 +1,41 @@
 package sdp.ratajo.amaderbari.dto.flatpack;
 
 public class Image{
-	private String image_id;
-	private String image_url;
-	private String image_type;
+	private String imageId;
+	private String imageUrl;
+	private String imageType;
 	
 	public Image(){}
-	
-	public Image(String image_id, String image_url, String image_type) {
+
+	public Image(String imageId, String imageUrl, String imageType) {
 		super();
-		this.image_id = image_id;
-		this.image_url = image_url;
-		this.image_type = image_type;
+		this.imageId = imageId;
+		this.imageUrl = imageUrl;
+		this.imageType = imageType;
 	}
 
-
-	public String getImage_id() {
-		return image_id;
+	public String getImageId() {
+		return imageId;
 	}
 
-
-	public void setImage_id(String image_id) {
-		this.image_id = image_id;
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
 	}
 
-
-	public String getImage_url() {
-		return image_url;
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
-
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
-
-	public String getImage_type() {
-		return image_type;
+	public String getImageType() {
+		return imageType;
 	}
 
-
-	public void setImage_type(String image_type) {
-		this.image_type = image_type;
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Image [image_id=" + image_id + ", image_url=" + image_url
-				+ ", image_type=" + image_type + "]";
-	}
-	
-	
-	
 	
 }

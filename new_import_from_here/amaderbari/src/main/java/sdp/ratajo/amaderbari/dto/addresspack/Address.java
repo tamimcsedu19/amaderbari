@@ -5,7 +5,7 @@ import java.util.List;
 // need a header table - to store the header of address
 // each country will have a table
 
-public class Address extends AdressLable {
+public class Address extends AddressLabel {
 	private String addressId;
 	
 	public Address(){}
