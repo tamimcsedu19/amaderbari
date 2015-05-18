@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class CommonDao {
 	@Autowired
-	protected JdbcTemplate jdbcTemplate;
+	JdbcTemplate jdbcTemplate;
 	
 	abstract boolean save(Object obj);
 	abstract boolean update(Object obj);

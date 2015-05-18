@@ -75,7 +75,7 @@ public class AddressLabelDao extends CommonDao {
 					 addressLabel.setCountry(rs.getString(2));
 					 addressLabel.setAddressArgument1(rs.getString(3));
 					 addressLabel.setAddressArgument2(rs.getString(4));
-					 addressLabel.setExtraAddressArgument((List<String>)rs.getArray(5));
+					 addressLabel.setExtraAddressArgument(rs.getString(5));
 					
 					 return addressLabel;
 				 }

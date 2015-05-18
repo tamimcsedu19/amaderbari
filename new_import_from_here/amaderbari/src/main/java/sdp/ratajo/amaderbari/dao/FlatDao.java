@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 
 public class FlatDao extends CommonDao {	
+	
 	@Override
 	public boolean save(Object obj) {
 		Flat flat = (Flat) obj;

@@ -10,7 +10,7 @@ public class Address extends AddressLabel {
 	
 	public Address(){}
 	public Address(String addressId, String labelId, String country, String addressArgument1,
-			String addressArgument2, List<String> extraAddressArgument) {
+			String addressArgument2, String extraAddressArgument) {
 		super(labelId, country, addressArgument1, addressArgument2,
 				extraAddressArgument);
 		this.addressId = addressId;
