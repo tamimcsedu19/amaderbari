@@ -3,6 +3,7 @@ package sdp.ratajo.amaderbari.dto.flatpack;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Singleton;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +12,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.URL;
 
 public class Flat {
+	@Singleton
 	public static volatile long id;
 	
 	private String flatId;
@@ -26,8 +28,6 @@ public class Flat {
 	@URL
 	private String mapUrl;
 	
-	private List<String> imageIds;
-	
 	@Size(min=3, max=10, message="The length of data must be between 3 and 10")
 	private String squareFoot;
 	
@@ -35,6 +35,7 @@ public class Flat {
 	private double rent;
 	
 	private List<String> extraData;
+	private List<String> imageIds;
 	
 	public static final List<String> EXTRA_DATA_HEADER = Arrays.asList("type", "no_of_bed", "no_of_bath", "no_of_balcony", "no_of_dining", "no_of_drawing", "no_of_kitchen");
 	
@@ -42,19 +43,21 @@ public class Flat {
 	public Flat(){}
 
 	public Flat(String flatId, String addressId, String ownerEmail,
-			String renterEmail, String mapUrl, List<String> imageIds,
-			String squareFoot, double rent, List<String> extraData) {
+			String renterEmail, String mapUrl, String squareFoot, double rent,
+			List<String> extraData, List<String> imageIds) {
 		super();
 		this.flatId = flatId;
 		this.addressId = addressId;
 		this.ownerEmail = ownerEmail;
 		this.renterEmail = renterEmail;
 		this.mapUrl = mapUrl;
-		this.imageIds = imageIds;
 		this.squareFoot = squareFoot;
 		this.rent = rent;
 		this.extraData = extraData;
+		this.imageIds = imageIds;
 	}
+
+
 
 	public String getFlatId() {
 		return flatId;
@@ -127,4 +130,16 @@ public class Flat {
 	public void setExtraData(List<String> extraData) {
 		this.extraData = extraData;
 	}
+
+	@Override
+	public String toString() {
+		return "Flat [flatId=" + flatId + ", addressId=" + addressId
+				+ ", ownerEmail=" + ownerEmail + ", renterEmail=" + renterEmail
+				+ ", mapUrl=" + mapUrl + ", squareFoot=" + squareFoot
+				+ ", rent=" + rent + ", extraData=" + extraData + ", imageIds="
+				+ imageIds + "]";
+	}
+	
+	
+	
 }

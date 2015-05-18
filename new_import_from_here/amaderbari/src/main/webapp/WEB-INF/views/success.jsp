@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> You have successfully signed up</h1>
+<h1> Operation Successful </h1>
 </body>
 </html>

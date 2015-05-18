@@ -44,10 +44,10 @@ public class FlatController extends MvcConfiguration {
 			flat.setFlatId("" + flat.id++);
 			// add adress id
 		}
-		
+		System.out.println(flat);
 		flatDao.save(flat);
 		modelAndView.setViewName("success");
-		System.out.print("Post method of signup controller is executed");
+		System.out.print("Post method of Addflat controller is executed");
 		return modelAndView;
 	}
 }

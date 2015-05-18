@@ -3,10 +3,11 @@ package sdp.ratajo.amaderbari.dao;
 import javax.inject.Singleton;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class CommonDao {
-	@Singleton
+	@Autowired
 	protected JdbcTemplate jdbcTemplate;
 	
 	abstract boolean save(Object obj);
