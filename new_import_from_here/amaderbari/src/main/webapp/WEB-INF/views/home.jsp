@@ -80,12 +80,19 @@
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                               </form>
+                              
 							  <form action="signup" method="get">
 							  	<h3>Don't have an account?</h3>
 							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 							  </form>
 							
                 </div> <!-- colmd-4 -->
+                <div>
+                	<form action="addFlat" method="get">
+						<h3 align="center">Want to add flats</h3>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">ADD FLAT</button>
+					</form>
+                </div>
             </div><!--/row-->
         </div><!--container-->
 
