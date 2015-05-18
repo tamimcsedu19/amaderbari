@@ -1,10 +1,15 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
-import org.springframework.jdbc.core.*;
-import sdp.ratajo.amaderbari.bll.*; 
-import javax.sql.DataSource;
-import sdp.ratajo.amaderbari.userpack.dao.*;
+import sdp.ratajo.amaderbari.dao.search.FlatSearcher;
+import sdp.ratajo.amaderbari.dao.search.FlatSearcherBy3parameter;
 
+import org.springframework.jdbc.core.*;
+
+import sdp.ratajo.amaderbari.bll.*; 
+
+import javax.sql.DataSource;
+
+import sdp.ratajo.amaderbari.userpack.dao.*;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -69,9 +74,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     	return new ImageDao();
     }
     
-    @Bean
-    public FlatSearcher FlatSearcher() {
-        return new FlatSearcherBy3parameter(getDataSource());
+    @Bean FlatSearcher FlatSearcher(){
+    	return new FlatSearcherBy3parameter(getDataSource());
     }
     
     @Bean
