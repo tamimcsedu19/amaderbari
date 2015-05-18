@@ -53,12 +53,27 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     public UserDAO UserDAO()
     {
 		return new UserDAOImpl();
-    	
     }
-//    @Bean
-//    public FlatSearcher FlatSearcher() {
-//        return new FlatSearcherBy3parameter(getDataSource());
-//    }
+    
+    @Bean
+    public FlatDao FlatDao(){
+    	return new FlatDao();
+    }
+    @Bean AddressLabelDao AddressLabelDao(){
+    	return new AddressLabelDao();
+    }
+    @Bean AddressDao AddressDao(){
+    	return new AddressDao();
+    }
+    @Bean ImageDao ImageDao(){
+    	return new ImageDao();
+    }
+    
+    @Bean
+    public FlatSearcher FlatSearcher() {
+        return new FlatSearcherBy3parameter(getDataSource());
+    }
+    
     @Bean
     public AddressFactory AddressFactory() {
         return new AddressFactory();

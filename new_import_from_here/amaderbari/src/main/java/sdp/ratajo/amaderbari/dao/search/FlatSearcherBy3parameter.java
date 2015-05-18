@@ -47,10 +47,14 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		 * strings[0] is country
 		 * strings[1] is colval1 i.e Division value such as 'Dhaka' and strings[2] is colval2 i.e city value like 'Uttara'
 		 */
-		CountryColumnLabels countryColumnLabel = getColumnLabels(country);
+		Address addr = new Address();
+		addr.setCountry(strings[0]);
+		addr.setAddressArgument1(strings[1]);
+		addr.setAddressArgument2(strings[2]);
 		
+		AddressLabel addressLabel = new AddressLabel();
 		// Get address ids from the address
-		List<String> addressIds = getAddressIds(countryColumnLabel, addr);
+		List<String> addressIds = getAddressIds(addr);
 		System.out.print(addressIds.get(0));
 		
 		// Get flat ids from the address ids
@@ -61,51 +65,51 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		return flatIds;
 	}
 
-	private CountryColumnLabels getColumnLabels(String country)
+	private AddressLabel getColumnLabels(String country)
 	{
 		
 		String sql = "SELECT Column1, Column2 FROM CountryColumnMapper WHERE Country='"+country+"'";
-		List<CountryColumnLabels> clabels = jdbcTemplate.query(sql,new RowMapper<CountryColumnLabels>() {
+		List<AddressLabel> addresslabel = jdbcTemplate.query(sql,new RowMapper<AddressLabel>() {
 			 
 	        @Override
-	        public CountryColumnLabels mapRow(ResultSet rs, int rowNum) throws SQLException 
+	        public AddressLabel mapRow(ResultSet rs, int rowNum) throws SQLException 
 	        {
-	        	CountryColumnLabels Countrylabel = new CountryColumnLabels();
+	        	AddressLabel Countrylabel = new AddressLabel();
 	        	
 	        	Countrylabel.setCountry(rs.getString(0));
-	        	Countrylabel.setColumn1Label(rs.getString(1));
-	        	Countrylabel.setColumn2Label(rs.getString(2));
+	        	Countrylabel.setAddressArgument1(rs.getString(1));
+	        	Countrylabel.setAddressArgument2(rs.getString(2));
 	            return Countrylabel;
 	        }
 	 
 	    });
 		
 		// how ??
-		if(clabels.size() == 0)
+		if(addresslabel.size() == 0)
 		{
-			CountryColumnLabels BangladeshLabels =  new CountryColumnLabels();
-			BangladeshLabels.setColumn1Label("division");
-			BangladeshLabels.setColumn2Label("city");
+			AddressLabel BangladeshLabels =  new AddressLabel();
+			BangladeshLabels.setAddressArgument1("division");
+			BangladeshLabels.setAddressArgument2("city");
 			BangladeshLabels.setCountry("Bangladesh");
 			return BangladeshLabels;
 		}
 		
-//		if(clabels.size() == 0){
+//		if(addresslabel.size() == 0){
 //			System.out.println("NO COUNTRY LABEL FOUND FOR THE SPECEFIC COUNTRY");
 //			return null;
 //		}
 		
-		return clabels.get(0);
+		return addresslabel.get(0);
 	}
 	
 	
-	private List<String> getAddressIds(CountryColumnLabels clabels, Address addr)
+	private List<String> getAddressIds(Address addr)
 	{
-		String tablename = clabels.getCountry()+"Address";
+		String tablename = "Addresses";
 		
 		String sql = "SELECT addressId FROM "+tablename+
-				" WHERE "+clabels.getColumn1Label()+"='"+addr.getAddressArgument1()+"'"+
-				" and "  +clabels.getColumn2Label()+"='"+addr.getAddressArgument2()+"'";
+				" WHERE getAddressArgument1" + "='" + addr.getAddressArgument1() +"'"+
+				" and getAddressArgument2"  + "='" + addr.getAddressArgument2() +"'";
 		
 		List<String> addressId=jdbcTemplate.query(sql, new RowMapper<String>() {
 			@Override
@@ -132,20 +136,17 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 			flats.addAll(jdbcTemplate.query(sql, new RowMapper<Flat>() {
 				@Override
 				public Flat mapRow(ResultSet rs, int rowNum) throws SQLException {
-					Flat  aflat = new Flat();
-					
-					aflat.setFlat_id(rs.getString(0));
-					aflat.setAddressId(rs.getString(1));
-					aflat.setType(rs.getString(2));
-					aflat.setOwner_national_id(rs.getString(3));
-					aflat.setRenter_national_id(rs.getString(4));
-					aflat.setMap_url(rs.getString(5));
-					aflat.setImage_id(rs.getString(6));
-					aflat.setSquare_foot(rs.getString(7));
-					aflat.setRent(rs.getDouble(8));
-					aflat.setExtraData(rs.getString(9));
-					
-					return aflat;
+					 Flat flat = new Flat();
+					 flat.setFlatId(rs.getString(0));
+					 flat.setAddressId(rs.getString(1));
+					 flat.setOwnerEmail(rs.getString(2));
+					 flat.setRenterEmail(rs.getString(3));
+					 flat.setMapUrl(rs.getString(4));
+					 flat.setImageIds((List<String>)rs.getArray(5));
+					 flat.setSquareFoot(rs.getString(6));
+					 flat.setRent(rs.getDouble(rs.getString(7)));
+					 flat.setExtraData((List<String>)rs.getArray(8));
+					 return flat;
 				}
 			}));
 		}

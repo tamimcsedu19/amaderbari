@@ -2,8 +2,6 @@ package sdp.ratajo.amaderbari.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.springframework.dao.DataAccessException;
@@ -12,10 +10,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import sdp.ratajo.amaderbari.dto.flatpack.Image;
 
 public class ImageDao extends CommonDao {
-
-	public ImageDao(DataSource dataSource) {
-		super(dataSource);
-	}
 
 	@Override
 	public boolean save(Object obj) {

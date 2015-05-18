@@ -1,20 +1,14 @@
 package sdp.ratajo.amaderbari.dao;
 
+import javax.inject.Singleton;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class CommonDao {
-	protected volatile static JdbcTemplate jdbcTemplate;
-	protected CommonDao(DataSource dataSource){
-		if(jdbcTemplate == null){
-			synchronized (dataSource) {
-				if(jdbcTemplate == null){
-					jdbcTemplate = new JdbcTemplate(dataSource);
-				}
-			}
-		}
-	}
+	@Singleton
+	protected JdbcTemplate jdbcTemplate;
+	
 	abstract boolean save(Object obj);
 	abstract boolean update(Object obj);
 	abstract boolean delete(String id);

@@ -3,15 +3,37 @@ package sdp.ratajo.amaderbari.dto.flatpack;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.URL;
+
 public class Flat {
+	public static volatile long id;
+	
 	private String flatId;
 	private String addressId;
+	
+	@NotNull
+	@Email
 	private String ownerEmail;
+	
+	@Email
 	private String renterEmail;
+	
+	@URL
 	private String mapUrl;
+	
 	private List<String> imageIds;
+	
+	@Size(min=3, max=10, message="The length of data must be between 3 and 10")
 	private String squareFoot;
+	
+	@Min(value=0, message="Can't be less than 0.0")
 	private double rent;
+	
 	private List<String> extraData;
 	
 	public static final List<String> EXTRA_DATA_HEADER = Arrays.asList("type", "no_of_bed", "no_of_bath", "no_of_balcony", "no_of_dining", "no_of_drawing", "no_of_kitchen");

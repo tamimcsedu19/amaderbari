@@ -13,10 +13,6 @@ import sdp.ratajo.amaderbari.dto.addresspack.Address;
 
 public class AddressDao extends CommonDao {
 
-	public AddressDao(DataSource dataSource) {
-		super(dataSource);
-	}
-
 	@Override
 	public boolean save(Object obj) {
 		Address address = (Address) obj;

@@ -9,14 +9,9 @@ import javax.sql.DataSource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import sdp.ratajo.amaderbari.dto.addresspack.Address;
 import sdp.ratajo.amaderbari.dto.addresspack.AddressLabel;
 
 public class AddressLabelDao extends CommonDao {
-
-	public AddressLabelDao(DataSource dataSource) {
-		super(dataSource);
-	}
 
 	@Override
 	public boolean save(Object obj) {
