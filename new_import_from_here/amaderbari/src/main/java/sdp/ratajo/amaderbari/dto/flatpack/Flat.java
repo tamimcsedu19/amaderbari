@@ -18,14 +18,14 @@ public class Flat {
 	private String flatId;
 	private String addressId;
 	
-	@NotNull
-	@Email
+	@Min(value=1, message="Can't be empty")
+	@Email(message="not valid email")
 	private String ownerEmail;
 	
-	@Email
+	@Email(message="not valid email")
 	private String renterEmail;
 	
-	@URL
+	@URL(message="not valid URL")
 	private String mapUrl;
 	
 	@Size(min=3, max=10, message="The length of data must be between 3 and 10")

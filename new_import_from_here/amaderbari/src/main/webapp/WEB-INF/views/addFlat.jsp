@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                 <form:form role="form" action="addFlat" method="post" modelAttribute="flat">
-                    <h2> ADD FLATS ONCE TO MANAGE ANYTIME </h2>
+                    <h2 align="center"> ADD FLATS ONCE TO MANAGE ANYTIME </h2>
                     <hr class="colorgraph">
                     
                     <div class="form-group">
@@ -63,7 +63,15 @@
                     </div>
                 </form:form>
             </div>
+            
         </div>
+        <div>
+          	<form action="addAddress" method="post">
+          			<h3 align="center"> Want a renter? </h3>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">ADD Address</button>
+			</form>
         </div>
+        
+    </div>
 </body>
 </html>
