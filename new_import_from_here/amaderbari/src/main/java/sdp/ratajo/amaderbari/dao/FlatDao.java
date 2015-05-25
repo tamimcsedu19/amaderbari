@@ -1,5 +1,6 @@
 package sdp.ratajo.amaderbari.dao;
 
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -18,13 +19,13 @@ public class FlatDao extends CommonDao {
 	@Override
 	public boolean save(Object obj) {
 		Flat flat = (Flat) obj;
-		String sql = "INSERT INTO Flats (flatId, addressId, ownerEmail, renterEmail,"
-				+ " mapUrl, squareFoot, rent, extraData, imageIds)"
+		String sql = "INSERT INTO Flats (flatId, addressId, extraFlatDataId, imageId, ownerEmail, renterEmail,"
+				+ " mapUrl, squareFoot, rent)"
             	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try{
-			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getOwnerEmail(),
+			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getExtraFlatDataId(), flat.getImageId(), flat.getOwnerEmail(),
 					flat.getRenterEmail(), flat.getMapUrl(), flat.getSquareFoot(),
-					flat.getRent(), flat.getExtraData(), flat.getImageIds());
+					flat.getRent());
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -36,13 +37,13 @@ public class FlatDao extends CommonDao {
 	@Override
 	public boolean update(Object obj) {
 		Flat flat = (Flat) obj;
-		String sql = "UPDATE Flats SET flatId=?, addressId=?, ownerEmail=?, renterEmail=?,"
-				+ "mapUrl=?, squareFoot=?, rent=?, extraData=?, imageIds=?)";
+		String sql = "UPDATE Flats SET flatId=?, addressId=?, extraFlatDataId=?, imageId=?, ownerEmail=?, renterEmail=?,"
+				+ "mapUrl=?, squareFoot=?, rent=?)";
 		
 		try{
-			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getOwnerEmail(),
+			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getExtraFlatDataId(), flat.getImageId(), flat.getOwnerEmail(),
 					flat.getRenterEmail(), flat.getMapUrl(), flat.getSquareFoot(),
-					flat.getRent(), flat.getExtraData(), flat.getImageIds());
+					flat.getRent());
 		}catch(Exception e){
 			e.printStackTrace();
 			return false;
@@ -72,15 +73,16 @@ public class FlatDao extends CommonDao {
 					DataAccessException {
 				 if (rs.next()) {
 					 Flat flat = new Flat();
-					 flat.setFlatId(rs.getString(0));
-					 flat.setAddressId(rs.getString(1));
-					 flat.setOwnerEmail(rs.getString(2));
-					 flat.setRenterEmail(rs.getString(3));
-					 flat.setMapUrl(rs.getString(4));
-					 flat.setSquareFoot(rs.getString(5));
-					 flat.setRent(rs.getDouble(rs.getString(6)));
-					 flat.setExtraData((List<String>)rs.getArray(7));
-					 flat.setImageIds((List<String>)rs.getArray(8));
+					 flat.setFlatId(rs.getLong(0));
+					 flat.setAddressId(rs.getLong(1));
+					 flat.setExtraFlatDataId(rs.getLong(2));
+					 flat.setImageId(rs.getLong(3));
+					 flat.setOwnerEmail(rs.getString(4));
+					 flat.setRenterEmail(rs.getString(5));
+					 flat.setMapUrl(rs.getString(6));
+					 flat.setSquareFoot(rs.getString(7));
+					 flat.setRent(rs.getDouble(rs.getString(8)));
+					 
 					 return flat;
 				 }
 				return null;

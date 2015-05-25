@@ -42,8 +42,8 @@ public class FlatController extends MvcConfiguration {
 			return new ModelAndView("addFlat");
 		}
 		else{
-			flat.setFlatId("" + flat.id++);
-			// add adress id
+			//flat id will be auto increment
+			//just search for address id
 		}
 		System.out.println(flat);
 		flatDao.save(flat);

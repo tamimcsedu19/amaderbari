@@ -32,9 +32,6 @@ public class SignUpController extends WebMvcConfigurerAdapter {
 
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
 	public ModelAndView showSignUpPage(ModelAndView modelAndView,HttpServletRequest req) {
-		
-		
-		
 		return new ModelAndView("signup","user",new UserForm());
 
 	}

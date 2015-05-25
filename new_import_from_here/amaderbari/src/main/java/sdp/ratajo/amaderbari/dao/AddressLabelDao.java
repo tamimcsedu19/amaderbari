@@ -71,11 +71,11 @@ public class AddressLabelDao extends CommonDao {
 				 if (rs.next()) {
 					 AddressLabel addressLabel = new AddressLabel();
 					 
-					 addressLabel.setLabelId(rs.getString(1));
-					 addressLabel.setCountry(rs.getString(2));
-					 addressLabel.setAddressArgument1(rs.getString(3));
-					 addressLabel.setAddressArgument2(rs.getString(4));
-					 addressLabel.setExtraAddressArgument(rs.getString(5));
+					 addressLabel.setLabelId(rs.getLong(0));
+					 addressLabel.setCountry(rs.getString(1));
+					 addressLabel.setAddressArgument1(rs.getString(2));
+					 addressLabel.setAddressArgument2(rs.getString(3));
+					 addressLabel.setExtraAddressArgument(rs.getString(4));
 					
 					 return addressLabel;
 				 }

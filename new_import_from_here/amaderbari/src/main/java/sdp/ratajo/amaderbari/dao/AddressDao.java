@@ -71,8 +71,8 @@ public class AddressDao extends CommonDao {
 				 if (rs.next()) {
 					 
 					 Address address = new Address();
-					 address.setAddressId(rs.getString(0));
-					 address.setLabelId(rs.getString(1));
+					 address.setAddressId(rs.getLong(0));
+					 address.setLabelId(rs.getLong(1));
 					 address.setCountry(rs.getString(2));
 					 address.setAddressArgument1(rs.getString(3));
 					 address.setAddressArgument2(rs.getString(4));
