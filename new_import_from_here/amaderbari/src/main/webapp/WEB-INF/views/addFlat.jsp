@@ -63,15 +63,6 @@
                     </div>
                 </form:form>
             </div>
-            
-        </div>
-        <div>
-          	<form action="addAddress" method="post">
-          			<h3 align="center"> Want a renter? </h3>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">ADD Address</button>
-			</form>
-        </div>
-        
     </div>
 </body>
 </html>
