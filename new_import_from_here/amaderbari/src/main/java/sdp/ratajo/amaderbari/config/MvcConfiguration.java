@@ -1,14 +1,8 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
-<<<<<<< HEAD
 import sdp.ratajo.amaderbari.dao.search.*;
-
-||||||| merged common ancestors
-=======
 import sdp.ratajo.amaderbari.dao.search.FlatSearcher;
 import sdp.ratajo.amaderbari.dao.search.FlatSearcherBy3parameter;
-
->>>>>>> 05bc468313b864dc7ff64e2330d83828f02a0c37
 import org.springframework.jdbc.core.*;
 
 import sdp.ratajo.amaderbari.bll.*; 
