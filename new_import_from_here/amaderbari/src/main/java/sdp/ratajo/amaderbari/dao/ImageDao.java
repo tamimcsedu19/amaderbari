@@ -14,10 +14,11 @@ public class ImageDao extends CommonDao {
 	@Override
 	public boolean save(Object obj) {
 		Image image = (Image) obj;
-		String sql = "INSERT INTO Images (imageId, imageUrl, imageType)"
-            	+ " VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Images (imageId, imageUrl1, imageUrl2, imageUrl3, imageUrl4, imageUrl5)"
+            	+ " VALUES (?, ?, ?, ?, ?, ?)";
 		try{
-			jdbcTemplate.update(sql, image.getImageId(), image.getImageUrl(), image.getImageType());
+			jdbcTemplate.update(sql, image.getImageId(), image.getImageUrl1(), image.getImageUrl2(),
+					image.getImageUrl3(), image.getImageUrl4(), image.getImageUrl5());
 		}catch(Exception e){
 			e.printStackTrace();
 			return false;
@@ -28,9 +29,11 @@ public class ImageDao extends CommonDao {
 	@Override
 	public boolean update(Object obj) {
 		Image image = (Image) obj;
-		String sql = "UPDATE Images SET imageId=?, imageUrl=?, imageType=?";
+		String sql = "UPDATE Images SET imageId=?, imageUrl1=?, imageUrl2=?, imageUrl3=?, imageUrl4=?"
+				+ ", imageUrl5=?";
 		try{
-			jdbcTemplate.update(sql, image.getImageId(), image.getImageUrl(), image.getImageType());
+			jdbcTemplate.update(sql, image.getImageId(), image.getImageUrl1(), image.getImageUrl2(),
+					image.getImageUrl3(), image.getImageUrl4(), image.getImageUrl5());
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -62,10 +65,12 @@ public class ImageDao extends CommonDao {
 				 if (rs.next()) {
 					 Image image = new Image();
 					 
-					 image.setImageId(rs.getString(1));
-					 image.setImageUrl(rs.getString(2));
-					 image.setImageType(rs.getString(3));
-					
+					 image.setImageId(rs.getLong(0));
+					 image.setImageUrl1(rs.getString(1));
+					 image.setImageUrl2(rs.getString(2));
+					 image.setImageUrl3(rs.getString(3));
+					 image.setImageUrl4(rs.getString(4));
+					 image.setImageUrl5(rs.getString(5));
 					 return image;
 				 }
 				return null;

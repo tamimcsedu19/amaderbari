@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressLabel {
-	protected String labelId;
+	protected long labelId;
 	protected String country;
 	protected String addressArgument1;
 	protected String addressArgument2;
-	protected List<String> extraAddressArgument;
+	protected String extraAddressArgument;
 	
 	public AddressLabel(){}
 	
-	public AddressLabel(String labelId, String country, String addressArgument1,
-			String addressArgument2, List<String> extraAddressArgument) {
+	public AddressLabel(long labelId, String country, String addressArgument1,
+			String addressArgument2, String extraAddressArgument) {
 		super();
 		this.labelId = labelId;
 		this.country = country;
@@ -22,10 +22,10 @@ public class AddressLabel {
 		this.extraAddressArgument = extraAddressArgument;
 	}
 
-	public String getLabelId() {
+	public long getLabelId() {
 		return labelId;
 	}
-	public void setLabelId(String labelId) {
+	public void setLabelId(long labelId) {
 		this.labelId = labelId;
 	}
 	public String getCountry() {
@@ -46,10 +46,10 @@ public class AddressLabel {
 	public void setAddressArgument2(String addressArgument2) {
 		this.addressArgument2 = addressArgument2;
 	}
-	public List<String> getExtraAddressArgument() {
+	public String getExtraAddressArgument() {
 		return extraAddressArgument;
 	}
-	public void setExtraAddressArgument(List<String> extraAddressArgument) {
+	public void setExtraAddressArgument(String extraAddressArgument) {
 		this.extraAddressArgument = extraAddressArgument;
-	}
+	}	
 }

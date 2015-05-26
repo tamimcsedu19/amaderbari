@@ -6,21 +6,22 @@ import java.util.List;
 // each country will have a table
 
 public class Address extends AddressLabel {
-	private String addressId;
+	private long addressId;
 	
 	public Address(){}
-	public Address(String addressId, String labelId, String country, String addressArgument1,
-			String addressArgument2, List<String> extraAddressArgument) {
+	
+	public Address(long addressId, long labelId, String country, String addressArgument1,
+			String addressArgument2, String extraAddressArgument) {
 		super(labelId, country, addressArgument1, addressArgument2,
 				extraAddressArgument);
 		this.addressId = addressId;
 	}
 
-	public String getAddressId() {
+	public long getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(String addressId) {
+	public void setAddressId(long addressId) {
 		this.addressId = addressId;
 	}
 	

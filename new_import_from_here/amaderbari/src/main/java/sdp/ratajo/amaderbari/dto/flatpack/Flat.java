@@ -3,6 +3,7 @@ package sdp.ratajo.amaderbari.dto.flatpack;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Singleton;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,22 +12,20 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.URL;
 
 public class Flat {
-	public static volatile long id;
 	
-	private String flatId;
-	private String addressId;
+	private long flatId;
+	private long addressId;
+	private long extraFlatDataId;
+	private long imageId;
 	
-	@NotNull
-	@Email
+	@Email(message="not valid email")
 	private String ownerEmail;
 	
-	@Email
+	@Email(message="not valid email")
 	private String renterEmail;
 	
-	@URL
+	@URL(message="not valid URL")
 	private String mapUrl;
-	
-	private List<String> imageIds;
 	
 	@Size(min=3, max=10, message="The length of data must be between 3 and 10")
 	private String squareFoot;
@@ -34,97 +33,123 @@ public class Flat {
 	@Min(value=0, message="Can't be less than 0.0")
 	private double rent;
 	
-	private List<String> extraData;
-	
-	public static final List<String> EXTRA_DATA_HEADER = Arrays.asList("type", "no_of_bed", "no_of_bath", "no_of_balcony", "no_of_dining", "no_of_drawing", "no_of_kitchen");
-	
-	
 	public Flat(){}
 
-	public Flat(String flatId, String addressId, String ownerEmail,
-			String renterEmail, String mapUrl, List<String> imageIds,
-			String squareFoot, double rent, List<String> extraData) {
+	public Flat(long flatId, long addressId, long extraFlatDataId, long imageId,
+			String ownerEmail, String renterEmail, String mapUrl,
+			String squareFoot, double rent) {
 		super();
 		this.flatId = flatId;
 		this.addressId = addressId;
+		this.extraFlatDataId = extraFlatDataId;
+		this.imageId = imageId;
 		this.ownerEmail = ownerEmail;
 		this.renterEmail = renterEmail;
 		this.mapUrl = mapUrl;
-		this.imageIds = imageIds;
 		this.squareFoot = squareFoot;
 		this.rent = rent;
-		this.extraData = extraData;
 	}
 
-	public String getFlatId() {
+
+
+
+
+	public long getFlatId() {
 		return flatId;
 	}
 
-	public void setFlatId(String flatId) {
+
+	public void setFlatId(long flatId) {
 		this.flatId = flatId;
 	}
 
-	public String getAddressId() {
+
+	public long getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(String addressId) {
+
+	public void setAddressId(long addressId) {
 		this.addressId = addressId;
 	}
+
 
 	public String getOwnerEmail() {
 		return ownerEmail;
 	}
 
+
 	public void setOwnerEmail(String ownerEmail) {
 		this.ownerEmail = ownerEmail;
 	}
+
 
 	public String getRenterEmail() {
 		return renterEmail;
 	}
 
+
 	public void setRenterEmail(String renterEmail) {
 		this.renterEmail = renterEmail;
 	}
+
 
 	public String getMapUrl() {
 		return mapUrl;
 	}
 
+
 	public void setMapUrl(String mapUrl) {
 		this.mapUrl = mapUrl;
 	}
 
-	public List<String> getImageIds() {
-		return imageIds;
-	}
-
-	public void setImageIds(List<String> imageIds) {
-		this.imageIds = imageIds;
-	}
 
 	public String getSquareFoot() {
 		return squareFoot;
 	}
 
+
 	public void setSquareFoot(String squareFoot) {
 		this.squareFoot = squareFoot;
 	}
+
 
 	public double getRent() {
 		return rent;
 	}
 
+
 	public void setRent(double rent) {
 		this.rent = rent;
 	}
 
-	public List<String> getExtraData() {
-		return extraData;
+
+	public long getExtraFlatDataId() {
+		return extraFlatDataId;
 	}
 
-	public void setExtraData(List<String> extraData) {
-		this.extraData = extraData;
+
+	public void setExtraFlatDataId(long extraFlatDataId) {
+		this.extraFlatDataId = extraFlatDataId;
+	}
+
+
+	public long getImageId() {
+		return imageId;
+	}
+
+
+	public void setImageId(long imageId) {
+		this.imageId = imageId;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Flat [flatId=" + flatId + ", addressId=" + addressId
+				+ ", ownerEmail=" + ownerEmail + ", renterEmail=" + renterEmail
+				+ ", mapUrl=" + mapUrl + ", squareFoot=" + squareFoot
+				+ ", rent=" + rent + ", extraFlatDataId=" + extraFlatDataId
+				+ ", imageId=" + imageId + "]";
 	}
 }

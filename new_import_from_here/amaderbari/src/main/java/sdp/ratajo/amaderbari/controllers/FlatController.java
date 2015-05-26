@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import sdp.ratajo.amaderbari.config.MvcConfiguration;
 import sdp.ratajo.amaderbari.dao.FlatDao;
+import sdp.ratajo.amaderbari.dto.addresspack.Address;
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 import sdp.ratajo.amaderbari.userpack.dto.UserForm;
@@ -29,25 +30,31 @@ public class FlatController extends MvcConfiguration {
     }
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.GET)
-	public ModelAndView showSignUpPage(ModelAndView modelAndView,HttpServletRequest req) {
+	public ModelAndView addFlat(ModelAndView modelAndView,HttpServletRequest req) {
 		return new ModelAndView("addFlat","flat", new Flat());
 
 	}
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.POST)
-	public ModelAndView signemUp(@Valid Flat flat , BindingResult result, ModelAndView modelAndView) {
+	public ModelAndView addFlat(@Valid @ModelAttribute("flat")Flat flat, BindingResult result, ModelAndView modelAndView) {
 		
 		if(result.hasErrors()){
-			return new ModelAndView("signup");
+			return new ModelAndView("addFlat");
 		}
 		else{
-			flat.setFlatId("" + flat.id++);
-			// add adress id
+			//flat id will be auto increment
+			//just search for address id
 		}
-		
+		System.out.println(flat);
 		flatDao.save(flat);
 		modelAndView.setViewName("success");
-		System.out.print("Post method of signup controller is executed");
+		System.out.print("Post method of Addflat controller is executed");
 		return modelAndView;
+	}
+	
+	@RequestMapping(value = "addAddress", method = RequestMethod.POST)
+	public void addAddress(@Valid Address address , BindingResult result, ModelAndView modelAndView) {
+		
+		System.out.println("SUCCESSFULL");
 	}
 }
