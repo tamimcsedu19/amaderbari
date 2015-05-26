@@ -50,10 +50,6 @@ public class Flat {
 		this.rent = rent;
 	}
 
-
-
-
-
 	public long getFlatId() {
 		return flatId;
 	}

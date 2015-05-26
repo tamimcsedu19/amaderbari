@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>ADD FLAT</title>
+	<title>ADD ADDRESS</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/signup.css">
@@ -50,7 +50,7 @@
                     </div>
                 </form:form>
             </div>
-        </div> <!-- flat container end -->
+        </div> <!-- address container end -->
         <div class="row">
         	<h2 align="center"> Want to add some image? </h2>
         	<hr class="colorgraph">

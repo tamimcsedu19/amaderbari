@@ -114,8 +114,8 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		List<String> addressId=jdbcTemplate.query(sql, new RowMapper<String>() {
 			@Override
 			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-				
-				return rs.getString("addressId");
+				if(rs.next()) return rs.getString("addressId");
+				else return null;
 			
 			}
 		});
@@ -132,7 +132,17 @@ public class FlatSearcherBy3parameter implements FlatSearcher {
 		List<Flat> flats = null;
 		for(String addressId : addressIds){
 			String sql = sqltemplate + addressId + "'";
-			
+			flats.addAll(jdbcTemplate.query(sql, new RowMapper<Flat>() {
+				@Override
+				public Flat mapRow(ResultSet rs, int rowNum) throws SQLException {
+					if(rs.next()){
+						return new Flat(rs.getLong(0), rs.getLong(1), rs.getLong(2),
+								rs.getLong(3), rs.getString(4), rs.getString(5),
+								rs.getString(6), rs.getString(7), rs.getDouble(8));
+					}
+					return null;
+				}
+			}));
 			
 		}
 		
