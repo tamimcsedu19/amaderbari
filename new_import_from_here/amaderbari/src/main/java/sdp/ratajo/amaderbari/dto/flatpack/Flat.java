@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Singleton;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,12 +19,15 @@ public class Flat {
 	private long extraFlatDataId;
 	private long imageId;
 	
+	@Size(min=3, max=50, message="The length of data must be between 3 and 50")
 	@Email(message="not valid email")
 	private String ownerEmail;
 	
+	@Size(min=0, max=50, message="The length of data must be between 50 char")
 	@Email(message="not valid email")
 	private String renterEmail;
 	
+	@Size(min=0, max=50, message="The length of data must be 50")
 	@URL(message="not valid URL")
 	private String mapUrl;
 	

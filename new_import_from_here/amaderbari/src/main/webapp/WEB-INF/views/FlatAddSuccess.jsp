@@ -20,10 +20,14 @@
 <h1> Flat add Successful </h1>
 		
         
-        
-   	<div class="col-xs-12 col-md-6"><a href="/addAddress" class="btn btn-success btn-block btn-lg">ADD Address</a></div>
-     <div class="col-xs-12 col-md-6"><a href="/amaderbari" class="btn btn-success btn-block btn-lg">HOME</a></div>                    
-        
+    <div>
+         <form action="/addAddress" method="get">
+			<h3 align="center">Want to add flats</h3>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">ADD ADDRESS</button>
+			<div class="col-xs-12 col-md-6"><a href="/amaderbari" class="btn btn-success btn-block btn-lg">HOME</a></div>                    
+						
+		</form>
+    </div>        
 
 </body>
 </html>

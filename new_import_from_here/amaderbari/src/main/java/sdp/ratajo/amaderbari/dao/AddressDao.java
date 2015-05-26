@@ -16,7 +16,7 @@ public class AddressDao extends CommonDao {
 	@Override
 	public boolean save(Object obj) {
 		Address address = (Address) obj;
-		String sql = "INSERT INTO Adresses (addressId, labelId, country, addressArgument1,"
+		String sql = "INSERT INTO Addresses (addressId, labelId, country, addressArgument1,"
 				+ " addressArgument2, extraAddressArgument)"
             	+ " VALUES (?, ?, ?, ?, ?, ?)";
 		try{
@@ -34,7 +34,7 @@ public class AddressDao extends CommonDao {
 	@Override
 	public boolean update(Object obj) {
 		Address address = (Address) obj;
-		String sql = "UPDATE Adresses SET addressId=?, labelId=?, country=?, addressArgument1=?,"
+		String sql = "UPDATE Addresses SET addressId=?, labelId=?, country=?, addressArgument1=?,"
 				+ "addressArgument2=?, extraAddressArgument=?)";
 		try{
 			jdbcTemplate.update(sql, address.getAddressId(), address.getLabelId(), address.getCountry(),
@@ -50,7 +50,7 @@ public class AddressDao extends CommonDao {
 	
 	@Override
 	boolean delete(String id) {
-		String sql = "DELETE FROM Adresses WHERE addressId=?";
+		String sql = "DELETE FROM Addresses WHERE addressId=?";
 		try{
 			jdbcTemplate.update(sql, id);
 		}catch(Exception e){
@@ -62,7 +62,7 @@ public class AddressDao extends CommonDao {
 
 	@Override
 	public Object get(String id) {
-		String sql = "SELECT * FROM Adresses WHERE addressId=?";
+		String sql = "SELECT * FROM Addresses WHERE addressId=?";
 		return jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
 		{
 			@Override

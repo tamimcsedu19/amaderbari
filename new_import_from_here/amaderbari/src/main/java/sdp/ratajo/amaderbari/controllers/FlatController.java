@@ -36,7 +36,7 @@ public class FlatController extends MvcConfiguration {
     }
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.GET)
-	public ModelAndView addFlat(ModelAndView modelAndView,HttpServletRequest req) {
+	public ModelAndView addFlat(ModelAndView modelAndView, HttpServletRequest req) {
 		return new ModelAndView("addFlat","flat", new Flat());
 
 	}
@@ -49,9 +49,14 @@ public class FlatController extends MvcConfiguration {
 		}
 		System.out.println(flat);
 		flatDao.save(flat);
-		modelAndView.setViewName("FlatAddSuccess");
-		System.out.print("Post method of Addflat controller is executed");
-		return modelAndView;
+		modelAndView.setViewName("addAddress");
+		System.out.println("Post method of Addflat controller is executed");
+		return new ModelAndView("addAddress","address", new Address());
+	}
+	
+	@RequestMapping(value = "addAddress", method = RequestMethod.GET)
+	public ModelAndView addAddress(ModelAndView modelAndView, HttpServletRequest req) {
+		return new ModelAndView("addAddress","address", new Address());
 	}
 	
 	@RequestMapping(value = "addAddress", method = RequestMethod.POST)
@@ -62,7 +67,7 @@ public class FlatController extends MvcConfiguration {
 		System.out.println(address);
 		addressDao.save(address);
 		modelAndView.setViewName("success");
-		System.out.print("Post method of AddAddress controller is executed");
+		System.out.println("Post method of AddAddress controller is executed");
 		return modelAndView;
 	}
 	
@@ -74,7 +79,7 @@ public class FlatController extends MvcConfiguration {
 		System.out.println(image);
 		addressDao.save(image);
 		modelAndView.setViewName("success");
-		System.out.print("Post method of AddImage controller is executed");
+		System.out.println("Post method of AddImage controller is executed");
 		return modelAndView;
 	}
 }
