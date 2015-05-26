@@ -1,10 +1,14 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
-import org.springframework.jdbc.core.*;
-import sdp.ratajo.amaderbari.bll.*; 
-import javax.sql.DataSource;
-import sdp.ratajo.amaderbari.userpack.dao.*;
+import sdp.ratajo.amaderbari.dao.search.*;
 
+import org.springframework.jdbc.core.*;
+
+import sdp.ratajo.amaderbari.bll.*; 
+
+import javax.sql.DataSource;
+
+import sdp.ratajo.amaderbari.userpack.dao.*;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

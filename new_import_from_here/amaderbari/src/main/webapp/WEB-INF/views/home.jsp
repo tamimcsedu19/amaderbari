@@ -1,5 +1,6 @@
+<%@ page import="java.io.*,java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+
 <!DOCTYPE html>
 <head>
 	<title>Amader Bari</title>
@@ -43,7 +44,7 @@
                 <div class="col-md-1"></div>
                 <div id="searchdiv" class="col-md-8">
                     <form name="search-box" action="searchFlat" method="GET" class="form-inline" role="form">
-                        
+
                         <div class="form-group">
                             <label for="country"></label>
                             <input type="text" class="form-control" name="country" placeholder="Enter country">
@@ -66,8 +67,19 @@
                     </form>
 
                 </div><!-- col-md-7-->
-                <div class="col-md-3">
-                          <form class="form-signin">
+                
+                <div class="col-md-3"
+                    <% if (session.getAttribute("username") == null){%>
+                    
+
+                <% } else {%>
+                        style="display: none;"
+                <% } %>
+
+
+
+                >
+                          <form class="form-signin" action="login" method="post">
                                 <h2 class="form-signin-heading">Please sign in</h2>
                                 <label for="inputEmail" class="sr-only">Email address</label>
                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -84,7 +96,7 @@
 							  	<h3>Don't have an account?</h3>
 							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 							  </form>
-							
+
                 </div> <!-- colmd-4 -->
             </div><!--/row-->
         </div><!--container-->

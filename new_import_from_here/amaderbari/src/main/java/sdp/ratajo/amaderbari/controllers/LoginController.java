@@ -21,15 +21,23 @@ public class LoginController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String home(Locale locale, Model model,HttpServletRequest req) {
+	
+	public String home( Model model,HttpServletRequest req) {
 		logger.info("In the login controller");
-		req.getParameter("");
+		
+		
 		
 		HttpSession curSession = req.getSession();
+		curSession.setAttribute("username", "tamim");
+		System.out.println("in login");
 		
-		
-		
-		return "home";
+		return "success";
 	}
+	@RequestMapping(value = "addflat", method = RequestMethod.GET)
+	public String h()
+	{
+		return "addFlat";
+	}
+
 	
 }
