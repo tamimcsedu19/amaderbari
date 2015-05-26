@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
+import javax.validation.constraints.Pattern.Flag;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -37,13 +38,21 @@ public class FlatDao extends CommonDao {
 	@Override
 	public boolean update(Object obj) {
 		Flat flat = (Flat) obj;
-		String sql = "UPDATE Flats SET flatId=?, addressId=?, extraFlatDataId=?, imageId=?, ownerEmail=?, renterEmail=?,"
-				+ "mapUrl=?, squareFoot=?, rent=?)";
+		String sql = "UPDATE Flats SET flatId=" + flat.getFlatId();
+		
+		if(flat.getAddressId() != 0) sql += ", addressId=" + flat.getAddressId();
+		if(flat.getExtraFlatDataId() != 0) sql += ", extraFlatDataId=" + flat.getExtraFlatDataId();
+		if(flat.getImageId() != 0) sql += ", imageId=" + flat.getImageId();
+		if(flat.getOwnerEmail() != null) sql += ", ownerEmail=" + flat.getOwnerEmail();
+		if(flat.getRenterEmail() != null) sql += ", renterEmail=" + flat.getRenterEmail();
+		if(flat.getMapUrl() != null) sql += ", mapUrl=" + flat.getMapUrl();
+		if(flat.getSquareFoot() != null) sql += ", squareFoot=" + flat.getSquareFoot();
+		if(flat.getRent() > 0.0) sql += ", rent=" + flat.getRent();
+		
+		sql += " where flatId=" + flat.getFlatId();
 		
 		try{
-			jdbcTemplate.update(sql, flat.getFlatId(), flat.getAddressId(), flat.getExtraFlatDataId(), flat.getImageId(), flat.getOwnerEmail(),
-					flat.getRenterEmail(), flat.getMapUrl(), flat.getSquareFoot(),
-					flat.getRent());
+			jdbcTemplate.update(sql);
 		}catch(Exception e){
 			e.printStackTrace();
 			return false;

@@ -25,21 +25,16 @@ public class FlatSearchController {
 	AddressFactory adfac;
 	@RequestMapping(value = "searchFlat", method = RequestMethod.GET)
 	public ModelAndView houses(ModelAndView modelAndView, HttpServletRequest req) {
-	
 		String country = "Bangladesh";
 		String col1val = (String)req.getParameter("col1val");
 		String col2val = (String)req.getParameter("col2val");
 		System.out.println(country + " " + col1val + " " + col2val);
 		
-		
-		
 		List<Flat> foundFlats = searcher.search(country,col1val,col2val);
 		
 		modelAndView.setViewName("showflats");
 		
-		
 		return modelAndView;
-
 	}
 	
 	
