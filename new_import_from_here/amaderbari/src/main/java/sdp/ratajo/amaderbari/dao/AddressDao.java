@@ -2,7 +2,9 @@ package sdp.ratajo.amaderbari.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -10,6 +12,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import sdp.ratajo.amaderbari.dto.addresspack.Address;
+import sdp.ratajo.amaderbari.dto.addresspack.AddressLabel;
 
 public class AddressDao extends CommonDao {
 
@@ -62,6 +65,7 @@ public class AddressDao extends CommonDao {
 
 	@Override
 	public Object get(String id) {
+		System.out.println("okkkkkkkkkk");
 		String sql = "SELECT * FROM Addresses WHERE addressId=?";
 		return jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
 		{
@@ -83,5 +87,29 @@ public class AddressDao extends CommonDao {
 				return null;
 			}	
 		}, id);
+	}
+
+	public List<Object> search(String sql) {
+		System.out.println("okkkkkkkkkk");
+		List<Object> objects = new ArrayList<Object>();
+		 
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row : rows) {
+			Address object = new Address();
+			
+			object.setAddressId((Long)row.get(0));
+			object.setLabelId((Long)row.get(1));
+			object.setCountry((String)row.get(2));
+			object.setAddressArgument1((String)row.get(3));
+			object.setAddressArgument2((String)row.get(4));
+			object.setExtraAddressArgument((String)row.get(5));
+			 
+			objects.add(object);
+		}
+		return  objects;
+	}
+	
+	public void check(){
+		System.out.println("okkkkkkkkkk");
 	}
 }

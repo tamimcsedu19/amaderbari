@@ -2,7 +2,9 @@ package sdp.ratajo.amaderbari.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -82,5 +84,25 @@ public class AddressLabelDao extends CommonDao {
 				return null;
 			}	
 		}, id);
+	}
+
+
+	public List<Object> search(String sql) {
+		List<Object> objects = new ArrayList<Object>();
+		System.out.println("OKkkkkkkkkkkkkkkkkkkkkk");
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row : rows) {
+			AddressLabel object = new AddressLabel();
+			
+			object.setLabelId((Long)row.get(0));
+			object.setCountry((String)row.get(1));
+			object.setAddressArgument1((String)row.get(2));
+			object.setAddressArgument2((String)row.get(3));
+			object.setExtraAddressArgument((String)row.get(4));
+			 
+			objects.add(object);
+		}
+		System.out.println("list size -> " + objects.size());
+		return  objects;
 	}
 }
