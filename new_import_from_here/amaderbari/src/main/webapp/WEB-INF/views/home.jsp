@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <head>
 	<title>Amader Bari</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,13 +68,33 @@
                     </form>
 
                 </div><!-- col-md-7-->
+                
+                
+                
+                <% 
+	String useremail = (String)session.getAttribute("useremail");
+    String displaylogin="",displayaddflatoption="";
+    
+    if(useremail != null)
+    {
+    	System.out.println("Hiding login");
+    	displaylogin = "style=\"display: none;\"";	
+    }
+    else if(useremail == null)
+    {
+    		displayaddflatoption="style=\"display: none;\"";	
+    		System.out.println("Hiding addFlat");
+    }
+    		%>
+                                		
+        
                 <div class="col-md-3">
-                          <form class="form-signin">
+                          <form class="form-signin" action ="login" method="post" <%=displaylogin%>> 
                                 <h2 class="form-signin-heading">Please sign in</h2>
-                                <label for="inputEmail" class="sr-only">Email address</label>
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <label for="useremail" class="sr-only">Email address</label>
+                                <input type="email" id="useremail" name="useremail" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="password" class="sr-only">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                                 <div class="checkbox">
                                   <label>
                                     <input type="checkbox" value="remember-me"> Remember me
@@ -81,19 +103,27 @@
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                               </form>
                               
-							  <form action="signup" method="get">
+							  <form action="signup" method="get" <%=displaylogin%>>
 							  	<h3>Don't have an account?</h3>
 							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 							  </form>
+							  <form action="signout" method="get" <%=displayaddflatoption%>>
+							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+							  </form>
 							
                 </div> <!-- colmd-4 -->
-                <div>
-                	<form action="addFlat" method="get">
+            </div><!--/row-->
+            <div class="row" <%=displayaddflatoption%>>
+            	<div class="col-md-12">
+            	<div>
+                	<form action="addFlat" method="post">
 						<h3 align="center">Want to add flats</h3>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">ADD FLAT</button>
 					</form>
                 </div>
-            </div><!--/row-->
+            	
+            	</div>
+            </div>
         </div><!--container-->
 </body>
 
