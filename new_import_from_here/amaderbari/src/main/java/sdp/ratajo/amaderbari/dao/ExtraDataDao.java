@@ -1,5 +1,7 @@
 package sdp.ratajo.amaderbari.dao;
 
+import java.util.List;
+
 import sdp.ratajo.amaderbari.dto.flatpack.ExtraFlatData;
 import sdp.ratajo.amaderbari.dto.flatpack.Image;
 

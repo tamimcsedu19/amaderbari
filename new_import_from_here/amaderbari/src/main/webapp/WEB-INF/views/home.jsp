@@ -50,13 +50,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="col1val"></label>
-                            <input type="text" class="form-control" name="col1val" placeholder="Enter division">
+                            <label for="addressArgument1"></label>
+                            <input type="text" class="form-control" name="addressArgument1" placeholder="Enter division">
                         </div>
 
                         <div class="form-group">
-                            <label for="col2val"></label>
-                            <input type="text" class="form-control" name="col2val" placeholder="Enter city">
+                            <label for="addressArgument2"></label>
+                            <input type="text" class="form-control" name="addressArgument2" placeholder="Enter city">
                         </div>
 
                         <br>

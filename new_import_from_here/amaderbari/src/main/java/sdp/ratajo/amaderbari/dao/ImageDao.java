@@ -2,6 +2,8 @@ package sdp.ratajo.amaderbari.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.dao.DataAccessException;
@@ -77,4 +79,5 @@ public class ImageDao extends CommonDao {
 			}	
 		}, id);
 	}
+
 }

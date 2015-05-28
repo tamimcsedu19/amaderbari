@@ -74,10 +74,6 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     	return new ImageDao();
     }
     
-    @Bean FlatSearcher FlatSearcher(){
-    	return new FlatSearcherBy3parameter(getDataSource());
-    }
-    
     @Bean
     public AddressFactory AddressFactory() {
         return new AddressFactory();

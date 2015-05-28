@@ -3,7 +3,9 @@ package sdp.ratajo.amaderbari.dao;
 import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 import javax.validation.constraints.Pattern.Flag;
@@ -13,6 +15,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import sdp.ratajo.amaderbari.dto.addresspack.Address;
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 
 public class FlatDao extends CommonDao {	
@@ -86,6 +89,7 @@ public class FlatDao extends CommonDao {
 					 flat.setAddressId(rs.getLong(1));
 					 flat.setExtraFlatDataId(rs.getLong(2));
 					 flat.setImageId(rs.getLong(3));
+					 
 					 flat.setOwnerEmail(rs.getString(4));
 					 flat.setRenterEmail(rs.getString(5));
 					 flat.setMapUrl(rs.getString(6));
@@ -97,5 +101,28 @@ public class FlatDao extends CommonDao {
 				return null;
 			}	
 		}, id);
+	}
+
+
+	public List<Object> search(String sql) {
+		List<Object> objects = new ArrayList<Object>();
+		 
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row : rows) {
+			Flat object = new Flat();
+			
+			object.setFlatId((Long)row.get(0));
+			object.setAddressId((Long)row.get(1));
+			object.setExtraFlatDataId((Long)row.get(2));
+			object.setImageId((Long)row.get(3));
+			object.setOwnerEmail((String)row.get(4));
+			object.setRenterEmail((String)row.get(5));
+			object.setMapUrl((String)row.get(6));
+			object.setSquareFoot((String)row.get(7));
+			object.setRent((Double)row.get(8));
+			 
+			objects.add(object);
+		}
+		return  objects;
 	}
 }
