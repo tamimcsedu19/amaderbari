@@ -21,7 +21,7 @@ import sdp.ratajo.amaderbari.dto.addresspack.Address;
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 import sdp.ratajo.amaderbari.userpack.dto.UserForm;
-
+import sdp.ratajo.amaderbari.dto.flatpack.*;
 @Controller
 public class FlatController extends MvcConfiguration {
 	@Autowired
@@ -66,15 +66,20 @@ public class FlatController extends MvcConfiguration {
 		}
 		System.out.println(address);
 		addressDao.save(address);
-		modelAndView.setViewName("success");
+		modelAndView.setViewName("addImage");
 		System.out.println("Post method of AddAddress controller is executed");
-		return modelAndView;
+		return new ModelAndView("addImage","image", new sdp.ratajo.amaderbari.dto.flatpack.Image());
+	}
+	
+	@RequestMapping(value = "addImage", method = RequestMethod.GET)
+	public ModelAndView addImage(ModelAndView modelAndView, HttpServletRequest req) {
+		return new ModelAndView("addImage","image", new sdp.ratajo.amaderbari.dto.flatpack.Image());
 	}
 	
 	@RequestMapping(value = "addImage", method = RequestMethod.POST)
 	public ModelAndView addImage(@Valid Image image , BindingResult result, ModelAndView modelAndView) {
 		if(result.hasErrors()){
-			return new ModelAndView("addAddress");
+			return new ModelAndView("addImage");
 		}
 		System.out.println(image);
 		addressDao.save(image);
