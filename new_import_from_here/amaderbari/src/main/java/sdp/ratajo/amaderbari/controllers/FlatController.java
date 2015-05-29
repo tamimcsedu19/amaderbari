@@ -30,10 +30,28 @@ public class FlatController extends MvcConfiguration {
 	@Autowired 
 	private AddressDao addressDao;
 	
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/success").setViewName("success");
-    }
+	
+	private void saveAll(HttpServletRequest request){
+		//flatDao.save(flat);		
+		//addressDao.save(address);
+		
+		Address address = (Address) request.getSession().getAttribute("address");
+		System.out.println("In save all\n" + address);
+		Integer addressId = addressDao.getId(address);
+		System.out.println(addressId);
+		if(addressId == 0){
+			addressDao.save(address);
+		}
+		
+		Flat flat = (Flat) request.getSession().getAttribute("flat");
+		flat.setAddressId(addressId);
+		Integer flatId = 0;
+		
+		
+		
+		
+		
+	}
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.GET)
 	public ModelAndView addFlat(ModelAndView modelAndView, HttpServletRequest req) {
@@ -47,16 +65,16 @@ public class FlatController extends MvcConfiguration {
 		if(result.hasErrors()){
 			return new ModelAndView("addFlat");
 		}
-		System.out.println(flat);
 
-		
-		flatDao.save(flat);
-		modelAndView.setViewName("addAddress");
 		System.out.println("Post method of Addflat controller is executed");
+		request.getSession().setAttribute("flat", flat);
 		
-		request.getSession().setAttribute("flatId", "1");
-		return new ModelAndView("addAddress","address", new Address());
+		saveAll(request);
+		
+		return new ModelAndView("addImage","image", new sdp.ratajo.amaderbari.dto.flatpack.Image());
 	}
+	
+	
 	
 	@RequestMapping(value = "addAddress", method = RequestMethod.GET)
 	public ModelAndView addAddress(ModelAndView modelAndView, HttpServletRequest req) {
@@ -68,11 +86,9 @@ public class FlatController extends MvcConfiguration {
 		if(result.hasErrors()){
 			return new ModelAndView("addAddress");
 		}
-		System.out.println(address);
-		addressDao.save(address);
-		modelAndView.setViewName("addImage");
 		System.out.println("Post method of AddAddress controller is executed");
-		return new ModelAndView("addImage","image", new sdp.ratajo.amaderbari.dto.flatpack.Image());
+		request.getSession().setAttribute("address", address);
+		return new ModelAndView("addFlat","flat", new Flat());
 	}
 	
 	@RequestMapping(value = "addImage", method = RequestMethod.GET)

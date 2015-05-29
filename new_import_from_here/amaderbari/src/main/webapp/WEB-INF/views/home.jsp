@@ -71,7 +71,7 @@
                 
                 
                 
-                <% 
+    <% 
 	String useremail = (String)session.getAttribute("useremail");
     String displaylogin="",displayaddflatoption="";
     
@@ -85,7 +85,7 @@
     		displayaddflatoption="style=\"display: none;\"";	
     		System.out.println("Hiding addFlat");
     }
-    		%>
+    %>
                                 		
         
                 <div class="col-md-3">
@@ -113,10 +113,10 @@
 							
                 </div> <!-- colmd-4 -->
             </div><!--/row-->
-            <div class="row" <%=displayaddflatoption%>>
+            <div class="row">
             	<div class="col-md-12">
             	<div>
-                	<form action="addFlat" method="post">
+                	<form action="addAddress" method="get">
 						<h3 align="center">Want to add flats</h3>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">ADD FLAT</button>
 					</form>
