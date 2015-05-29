@@ -37,14 +37,16 @@ public class FlatController extends MvcConfiguration {
 		
 		Address address = (Address) request.getSession().getAttribute("address");
 		System.out.println("In save all\n" + address);
-		Integer addressId = addressDao.getId(address);
-		System.out.println(addressId);
-		if(addressId == 0){
-			addressDao.save(address);
-		}
+		addressDao.save(address);
+		//Integer addressId = addressDao.getId(address);
+//		System.out.println(addressId);
+//		if(addressId == 0){
+//			addressDao.save(address);
+//		}
 		
 		Flat flat = (Flat) request.getSession().getAttribute("flat");
-		flat.setAddressId(addressId);
+		flatDao.save(flat);
+//		flat.setAddressId(addressId);
 		Integer flatId = 0;
 		
 		

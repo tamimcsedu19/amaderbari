@@ -66,7 +66,7 @@ public class AddressDao extends CommonDao {
 	@Override
 	public Object get(String id){
 		System.out.println("okkkkkkkkkk");
-		String sql = "SELECT * FROM Addresses WHERE labelId=?, count";
+		String sql = "SELECT * FROM Addresses WHERE labelId=?";
 		return jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
 		{
 			@Override
@@ -90,20 +90,31 @@ public class AddressDao extends CommonDao {
 	}
 	
 	public Integer getId(final Address address){
-		String sql = "SELECT AddressId FROM Addresses WHERE Country='Bangladesh', AddressArgument1='Dhaka',"
+		String sql = "SELECT * FROM Addresses WHERE Country='Bangladesh', AddressArgument1='Dhaka',"
 				+ " AddressArgument2='Dhaka'";
-		return jdbcTemplate.query(sql,new ResultSetExtractor<Integer>()
+		Address address2 = jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
 				{
 					@Override
-					public Integer extractData(ResultSet rs) throws SQLException,
+					public Address extractData(ResultSet rs) throws SQLException,
 							DataAccessException {
 						 if (rs.next()) {
-							 return (Integer)rs.getInt(0);
+							 
+							 Address add = new Address();
+							 add.setAddressId(rs.getInt(0));
+							 add.setLabelId(rs.getInt(1));
+							 add.setCountry(rs.getString(2));
+							 add.setAddressArgument1(rs.getString(3));
+							 add.setAddressArgument2(rs.getString(4));
+							 add.setExtraAddressArgument(rs.getString(5));
+							
+							 return add;
 						 }
 						 save(address);
-						 return getId(address);
+						 getId(address);
+						 return null;
 					}	
 				});
+		return address2.getAddressId();
 	}
 	
 
