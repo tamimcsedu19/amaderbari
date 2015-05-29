@@ -53,6 +53,12 @@ public class LoginController {
 		{
 				curSession.setAttribute("user",user);
 				List<Flat> flats = userDAO.getUserFlats(useremail);
+				List<Addres>
+				for(int i=0;i<flats.size();++i)
+				{
+					Flat flat = flats.get(i);
+					
+				}
 				curSession.setAttribute("flats", flats);
 				
 				System.out.println("setting session attribute");

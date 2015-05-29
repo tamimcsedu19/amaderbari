@@ -1,5 +1,6 @@
 package sdp.ratajo.amaderbari.dao;
 
+import java.awt.Image;
 import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -124,5 +125,12 @@ public class FlatDao extends CommonDao {
 			objects.add(object);
 		}
 		return  objects;
+	}
+
+	public void saveImage(Image image) {
+		
+		
+		
+		
 	}
 }

@@ -3,6 +3,7 @@ package sdp.ratajo.amaderbari.controllers;
 import java.awt.Image;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,4 +110,15 @@ public class FlatController extends MvcConfiguration {
 		System.out.println("Post method of AddImage controller is executed");
 		return modelAndView;
 	}
+	@RequestMapping(value = "showflats", method = RequestMethod.GET)
+	public ModelAndView showUserFlats(ModelAndView model,HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		model.addObject("flats",session.getAttribute("flats"));
+		model.setViewName("showflats");
+		System.out.print("in showflats");
+		return model;
+		
+	}
+
 }

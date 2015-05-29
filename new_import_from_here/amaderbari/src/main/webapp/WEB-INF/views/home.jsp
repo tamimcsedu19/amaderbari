@@ -46,7 +46,7 @@
                 <div class="col-md-1"></div>
                 <div id="searchdiv" class="col-md-8">
                     <form name="search-box" action="addressFlatSearch" method="GET" class="form-inline" role="form">
-                        
+
                         <div class="form-group">
                             <label for="country"></label>
                             <input type="text" class="form-control" name="country" placeholder="Enter country">
@@ -69,28 +69,28 @@
                     </form>
 
                 </div><!-- col-md-7-->
-                
-                
-            
-                <% 
+
+
+
+                <%
 	User user = (User)session.getAttribute("user");
     String displaylogin="",displayaddflatoption="";
-    
+
     if(user != null)
     {
     	System.out.println("Hiding login");
-    	displaylogin = "style=\"display: none;\"";	
+    	displaylogin = "style=\"display: none;\"";
     }
     else if(user == null)
     {
-    		displayaddflatoption="style=\"display: none;\"";	
+    		displayaddflatoption="style=\"display: none;\"";
     		System.out.println("Hiding addFlat");
     }
     %>
-                                		
-        
+
+
                 <div class="col-md-3">
-                          <form class="form-signin" action ="login" method="post" <%=displaylogin%>> 
+                          <form class="form-signin" action ="login" method="post" <%=displaylogin%>>
                                 <h2 class="form-signin-heading">Please sign in</h2>
                                 <p class="login_error">${error}</p>
                                 <label for="useremail" class="sr-only">Email address</label>
@@ -104,7 +104,7 @@
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                               </form>
-                              
+
 							  <form action="signup" method="get" <%=displaylogin%>>
 							  	<h3>Don't have an account?</h3>
 							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
@@ -112,19 +112,30 @@
 							  <form action="signout" method="get" <%=displayaddflatoption%>>
 							  	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
 							  </form>
-							
+
                 </div> <!-- colmd-4 -->
             </div><!--/row-->
             <div class="row">
             	<div class="col-md-12">
-            	<div>
-                	<form action="addAddress" method="get">
-						<h3 align="center">Want to add flats</h3>
-						<button class="btn btn-lg btn-primary btn-block" type="submit">ADD FLAT</button>
-					</form>
-                </div>
-            	
+                	<div>
+                    	<form action="addAddress" method="get">
+    						<h3 align="center">Want to add flats</h3>
+    						<button class="btn btn-lg btn-primary btn-block" type="submit">ADD FLAT</button>
+    					</form>
+                    </div>
+
             	</div>
+            </div>
+             <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <form action="showflats" method="get">
+                            <h3 align="center">See your Flats</h3>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">See Flats</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div><!--container-->
 </body>
