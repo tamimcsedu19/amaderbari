@@ -89,32 +89,34 @@ public class AddressDao extends CommonDao {
 		}, id);
 	}
 	
-	public Integer getId(final Address address){
-		String sql = "SELECT * FROM Addresses WHERE Country='Bangladesh', AddressArgument1='Dhaka',"
-				+ " AddressArgument2='Dhaka'";
-		Address address2 = jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
-				{
-					@Override
-					public Address extractData(ResultSet rs) throws SQLException,
-							DataAccessException {
-						 if (rs.next()) {
-							 
-							 Address add = new Address();
-							 add.setAddressId(rs.getInt(0));
-							 add.setLabelId(rs.getInt(1));
-							 add.setCountry(rs.getString(2));
-							 add.setAddressArgument1(rs.getString(3));
-							 add.setAddressArgument2(rs.getString(4));
-							 add.setExtraAddressArgument(rs.getString(5));
-							
-							 return add;
-						 }
-						 save(address);
-						 getId(address);
-						 return null;
-					}	
-				});
-		return address2.getAddressId();
+	public Address getAddress(final Address preAddress){
+		String sql = "SELECT * FROM Addresses" +
+				" Where Country = '" + preAddress.getCountry() +
+				"' and AddressArgument1 ='" + preAddress.getAddressArgument1() +
+				"' and AddressArgument2='" + preAddress.getAddressArgument2() + "'";
+		
+		List<Object> objects = new ArrayList<Object>();
+		 
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row : rows) {
+			Address object = new Address();
+			
+			object.setAddressId((Integer)row.get("AddressId"));
+			object.setLabelId((Integer)row.get("LabelId"));
+			object.setCountry((String)row.get("Country"));
+			object.setAddressArgument1((String)row.get("AddressArgument1"));
+			object.setAddressArgument2((String)row.get("AddressArgument2"));
+			object.setExtraAddressArgument((String)row.get("ExtraAddressArgument"));
+			 
+			objects.add(object);
+		}
+		if(objects.size() == 0)
+		{
+			save(preAddress);
+			return getAddress(preAddress);
+		}
+
+		else return (Address)objects.get(0);
 	}
 	
 

@@ -9,9 +9,23 @@
 <body>
 	<form name="ImageUpload" action="addImage" method="POST" enctype="multipart/form-data">
 		<div>
-		Select images:  
+		Select images:
+			<br> 
 			<input type="text" id="box"/> 
-			<input type="file" id="UploadFile" name="UploadFile"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" multiple />
+			<input type="file" id="UploadFile" name="image1"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" />
+			<br>
+			<input type="text" id="box"/>
+			<input type="file" id="UploadFile" name="image2"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" />
+			<br>
+			<input type="text" id="box"/>
+			<input type="file" id="UploadFile" name="image3"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" />
+			<br>
+			<input type="text" id="box"/>
+			<input type="file" id="UploadFile" name="image4"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" />
+			<br>
+			<input type="text" id="box"/>
+			<input type="file" id="UploadFile" name="image5"  onchange="CopyMe(this,'box');" accept="image/*" size="40" style="width: 91px;" />
+			
 		<br><br>  
 		<input type="submit" value="Upload" /><br><br>
 		</div>
