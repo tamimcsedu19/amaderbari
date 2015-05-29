@@ -102,6 +102,39 @@ public class FlatDao extends CommonDao {
 			}	
 		}, id);
 	}
+	
+	public Flat getFlat(Flat preFlat){
+		
+		String sql = "SELECT * FROM Flats" +
+				" Where AddressId = '" + preFlat.getAddressId() +
+				"' and OwnerEmail ='" + preFlat.getOwnerEmail() +
+				"' and SquareFoot ='" + preFlat.getSquareFoot() +
+				"' and Rent ='" + preFlat.getRent()+"'";
+		
+		List<Object> objects = new ArrayList<Object>();
+		 
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row : rows) {
+			Flat object = new Flat();
+			
+			object.setFlatId((Integer)row.get("FlatID"));
+			object.setAddressId((Integer)row.get("AddressId"));
+			object.setExtraFlatDataId((Integer)row.get("ExtraFlatDataId"));
+			object.setImageId((Integer)row.get("ImageId"));
+			object.setOwnerEmail((String)row.get("OwnerEmail"));
+			object.setRenterEmail((String)row.get("RenterEmail"));
+			object.setMapUrl((String)row.get("MapUrl"));
+			object.setSquareFoot((String)row.get("SquareFoot"));
+			object.setRent((Double)row.get("Rent"));
+			 
+			objects.add(object);
+		}
+		if(objects.size()==0){
+			save(preFlat);
+			return getFlat(preFlat);
+		}
+		else return (Flat) objects.get(0);
+	}
 
 
 	public List<Object> search(String sql) {

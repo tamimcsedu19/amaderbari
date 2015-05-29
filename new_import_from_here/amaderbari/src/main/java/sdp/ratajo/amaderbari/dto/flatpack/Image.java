@@ -4,15 +4,10 @@ import org.hibernate.validator.constraints.URL;
 
 public class Image{
 	private Integer imageId;
-	@URL
 	private String imageUrl1;
-	@URL
 	private String imageUrl2;
-	@URL
 	private String imageUrl3;
-	@URL
 	private String imageUrl4;
-	@URL
 	private String imageUrl5;
 	
 	public Image(){}
