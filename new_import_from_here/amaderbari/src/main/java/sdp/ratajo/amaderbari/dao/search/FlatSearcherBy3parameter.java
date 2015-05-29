@@ -89,7 +89,12 @@ public class FlatSearcherBy3parameter extends MvcConfiguration implements FlatSe
 				" and AddressArgument2"  + "='" + address.getAddressArgument2() +"'";
 		
 		List<String> addressIds = new ArrayList<String>(); //(List<String>) (Object)
-				addressDao.check();
+		if(addressDao == null)
+		{
+			System.out.print("null");
+		}
+		else
+			addressDao.check();
 		return addressIds;
 	}
 	

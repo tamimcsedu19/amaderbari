@@ -67,7 +67,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     @Bean AddressLabelDao AddressLabelDao(){
     	return new AddressLabelDao();
     }
-    @Bean AddressDao AddressDao(){
+    @Bean 
+    AddressDao AddressDao(){
     	return new AddressDao();
     }
     @Bean ImageDao ImageDao(){
