@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dao.UserDAO;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 
@@ -51,6 +52,9 @@ public class LoginController {
 		else
 		{
 				curSession.setAttribute("user",user);
+				List<Flat> flats = userDAO.getUserFlats(useremail);
+				curSession.setAttribute("flats", flats);
+				
 				System.out.println("setting session attribute");
 		}
 		System.out.println("in login");

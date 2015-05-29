@@ -2,14 +2,15 @@ package sdp.ratajo.amaderbari.userpack.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.sql.DataSource;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 
+import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 
 public class UserDAOImpl implements UserDAO{
@@ -79,6 +80,39 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
+	public List<Flat> getUserFlats(String email)
+	
+	{
+			
+		String sql = "SELECT * FROM Flats WHERE OwnerEmail=?";
+		return (List<Flat>) jdbcTemplate.query(sql, new RowMapper<Flat>() 
+				{
+
+					public Flat mapRow(ResultSet rs, int rowNum) throws SQLException
+					{
+				
+						Flat flat = new Flat();
+						flat.setFlatId(rs.getInt(1));
+						flat.setAddressId(rs.getInt(2));
+						flat.setExtraFlatDataId(rs.getInt(3));
+						flat.setImageId(rs.getInt(4));
+					 
+						flat.setOwnerEmail(rs.getString(5));
+						flat.setRenterEmail(rs.getString(6));
+						flat.setMapUrl(rs.getString(7));
+						flat.setSquareFoot(rs.getString(8));
+						flat.setRent(Double.parseDouble(rs.getString(9)));
+					 
+					 return flat;
+					}
+				
+				}	
+		, email);
+	}
+		
+		
+	}
+	
 
 	
-}
+

@@ -5,8 +5,10 @@ import java.util.List;
 
 
 
+
 /** This interface is for searching Flats have methods for searhing flats **/
 import sdp.ratajo.amaderbari.dto.*;
+import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 import sdp.ratajo.amaderbari.userpack.dto.UserForm;
 
@@ -21,5 +23,6 @@ public interface UserDAO {
 	public void update(User user);
 	public void delete(String email);
 	public User get(String email,String password);
+	public List<Flat> getUserFlats(String email);
 	
 }
