@@ -42,7 +42,7 @@
             <div class="row row2">
                 <div class="col-md-1"></div>
                 <div id="searchdiv" class="col-md-8">
-                    <form name="search-box" action="searchFlat" method="GET" class="form-inline" role="form">
+                    <form name="search-box" action="addressFlatSearch" method="GET" class="form-inline" role="form">
                         
                         <div class="form-group">
                             <label for="country"></label>

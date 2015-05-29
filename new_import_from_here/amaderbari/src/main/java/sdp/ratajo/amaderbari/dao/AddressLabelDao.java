@@ -73,7 +73,7 @@ public class AddressLabelDao extends CommonDao {
 				 if (rs.next()) {
 					 AddressLabel addressLabel = new AddressLabel();
 					 
-					 addressLabel.setLabelId(rs.getLong(0));
+					 addressLabel.setLabelId(rs.getInt(0));
 					 addressLabel.setCountry(rs.getString(1));
 					 addressLabel.setAddressArgument1(rs.getString(2));
 					 addressLabel.setAddressArgument2(rs.getString(3));
@@ -94,7 +94,7 @@ public class AddressLabelDao extends CommonDao {
 		for (Map row : rows) {
 			AddressLabel object = new AddressLabel();
 			
-			object.setLabelId((Long)row.get(0));
+			object.setLabelId((Integer)row.get(0));
 			object.setCountry((String)row.get(1));
 			object.setAddressArgument1((String)row.get(2));
 			object.setAddressArgument2((String)row.get(3));

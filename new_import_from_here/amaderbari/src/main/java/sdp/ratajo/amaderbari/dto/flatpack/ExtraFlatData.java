@@ -2,7 +2,8 @@ package sdp.ratajo.amaderbari.dto.flatpack;
 
 
 public class ExtraFlatData {
-	private long extraFlatDataId;
+	private Integer extraFlatDataId;
+	private String flatNum;
 	private String type;
 	private int numOfBed;
 	private int numOfBath;
@@ -13,11 +14,12 @@ public class ExtraFlatData {
 	
 	public ExtraFlatData(){}
 
-	public ExtraFlatData(long extraFlatDataId, String type, int numOfBed,
-			int numOfBath, int numOfBalcony, int numOfDining, int numOfDrawing,
-			int numOfKitchen) {
+	public ExtraFlatData(Integer extraFlatDataId, String flatNum, String type,
+			int numOfBed, int numOfBath, int numOfBalcony, int numOfDining,
+			int numOfDrawing, int numOfKitchen) {
 		super();
 		this.extraFlatDataId = extraFlatDataId;
+		this.flatNum = flatNum;
 		this.type = type;
 		this.numOfBed = numOfBed;
 		this.numOfBath = numOfBath;
@@ -27,11 +29,13 @@ public class ExtraFlatData {
 		this.numOfKitchen = numOfKitchen;
 	}
 
-	public long getExtraFlatDataId() {
+
+
+	public Integer getExtraFlatDataId() {
 		return extraFlatDataId;
 	}
 
-	public void setExtraFlatDataId(long extraFlatDataId) {
+	public void setExtraFlatDataId(Integer extraFlatDataId) {
 		this.extraFlatDataId = extraFlatDataId;
 	}
 
@@ -91,12 +95,22 @@ public class ExtraFlatData {
 		this.numOfKitchen = numOfKitchen;
 	}
 
+	public String getFlatNum() {
+		return flatNum;
+	}
+
+	public void setFlatNum(String flatNum) {
+		this.flatNum = flatNum;
+	}
+
 	@Override
 	public String toString() {
-		return "ExtraData [extraFlatDataId=" + extraFlatDataId + ", type=" + type
-				+ ", numOfBed=" + numOfBed + ", numOfBath=" + numOfBath
-				+ ", numOfBalcony=" + numOfBalcony + ", numOfDining="
-				+ numOfDining + ", numOfDrawing=" + numOfDrawing
-				+ ", numOfKitchen=" + numOfKitchen + "]";
+		return "ExtraFlatData [extraFlatDataId=" + extraFlatDataId
+				+ ", flatNum=" + flatNum + ", type=" + type + ", numOfBed="
+				+ numOfBed + ", numOfBath=" + numOfBath + ", numOfBalcony="
+				+ numOfBalcony + ", numOfDining=" + numOfDining
+				+ ", numOfDrawing=" + numOfDrawing + ", numOfKitchen="
+				+ numOfKitchen + "]";
 	}
+	
 }

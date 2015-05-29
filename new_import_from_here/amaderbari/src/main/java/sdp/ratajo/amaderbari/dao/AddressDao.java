@@ -64,7 +64,7 @@ public class AddressDao extends CommonDao {
 	}
 
 	@Override
-	public Object get(String id) {
+	public Object get(String id){
 		System.out.println("okkkkkkkkkk");
 		String sql = "SELECT * FROM Addresses WHERE addressId=?";
 		return jdbcTemplate.query(sql,new ResultSetExtractor<Address>()
@@ -75,8 +75,8 @@ public class AddressDao extends CommonDao {
 				 if (rs.next()) {
 					 
 					 Address address = new Address();
-					 address.setAddressId(rs.getLong(0));
-					 address.setLabelId(rs.getLong(1));
+					 address.setAddressId(rs.getInt(0));
+					 address.setLabelId(rs.getInt(1));
 					 address.setCountry(rs.getString(2));
 					 address.setAddressArgument1(rs.getString(3));
 					 address.setAddressArgument2(rs.getString(4));
@@ -88,6 +88,12 @@ public class AddressDao extends CommonDao {
 			}	
 		}, id);
 	}
+	
+	public Integer get(Address address){
+		String sql = "SELECT AddressId FROM Addresses WHERE addressId=?";
+		return 0;
+	}
+	
 
 	public List<Object> search(String sql) {
 		System.out.println("okkkkkkkkkk");
@@ -97,12 +103,12 @@ public class AddressDao extends CommonDao {
 		for (Map row : rows) {
 			Address object = new Address();
 			
-			object.setAddressId((Long)row.get(0));
-			object.setLabelId((Long)row.get(1));
-			object.setCountry((String)row.get(2));
-			object.setAddressArgument1((String)row.get(3));
-			object.setAddressArgument2((String)row.get(4));
-			object.setExtraAddressArgument((String)row.get(5));
+			object.setAddressId((Integer)row.get("AddressId"));
+			object.setLabelId((Integer)row.get("LabelId"));
+			object.setCountry((String)row.get("Country"));
+			object.setAddressArgument1((String)row.get("AddressArgument1"));
+			object.setAddressArgument2((String)row.get("AddressArgument2"));
+			object.setExtraAddressArgument((String)row.get("ExtraAddressArgument"));
 			 
 			objects.add(object);
 		}

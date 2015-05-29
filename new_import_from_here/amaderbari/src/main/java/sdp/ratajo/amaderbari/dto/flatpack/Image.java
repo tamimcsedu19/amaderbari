@@ -3,7 +3,7 @@ package sdp.ratajo.amaderbari.dto.flatpack;
 import org.hibernate.validator.constraints.URL;
 
 public class Image{
-	private long imageId;
+	private Integer imageId;
 	@URL
 	private String imageUrl1;
 	@URL
@@ -17,7 +17,7 @@ public class Image{
 	
 	public Image(){}
 
-	public Image(long imageId, String imageUrl1, String imageUrl2,
+	public Image(Integer imageId, String imageUrl1, String imageUrl2,
 			String imageUrl3, String imageUrl4, String imageUrl5) {
 		super();
 		this.imageId = imageId;
@@ -28,11 +28,11 @@ public class Image{
 		this.imageUrl5 = imageUrl5;
 	}
 
-	public long getImageId() {
+	public Integer getImageId() {
 		return imageId;
 	}
 
-	public void setImageId(long imageId) {
+	public void setImageId(Integer imageId) {
 		this.imageId = imageId;
 	}
 

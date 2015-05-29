@@ -85,10 +85,10 @@ public class FlatDao extends CommonDao {
 					DataAccessException {
 				 if (rs.next()) {
 					 Flat flat = new Flat();
-					 flat.setFlatId(rs.getLong(0));
-					 flat.setAddressId(rs.getLong(1));
-					 flat.setExtraFlatDataId(rs.getLong(2));
-					 flat.setImageId(rs.getLong(3));
+					 flat.setFlatId(rs.getInt(0));
+					 flat.setAddressId(rs.getInt(1));
+					 flat.setExtraFlatDataId(rs.getInt(2));
+					 flat.setImageId(rs.getInt(3));
 					 
 					 flat.setOwnerEmail(rs.getString(4));
 					 flat.setRenterEmail(rs.getString(5));
@@ -111,10 +111,10 @@ public class FlatDao extends CommonDao {
 		for (Map row : rows) {
 			Flat object = new Flat();
 			
-			object.setFlatId((Long)row.get(0));
-			object.setAddressId((Long)row.get(1));
-			object.setExtraFlatDataId((Long)row.get(2));
-			object.setImageId((Long)row.get(3));
+			object.setFlatId((Integer)row.get(0));
+			object.setAddressId((Integer)row.get(1));
+			object.setExtraFlatDataId((Integer)row.get(2));
+			object.setImageId((Integer)row.get(3));
 			object.setOwnerEmail((String)row.get(4));
 			object.setRenterEmail((String)row.get(5));
 			object.setMapUrl((String)row.get(6));
