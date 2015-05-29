@@ -17,7 +17,11 @@ public class UserDAOImpl implements UserDAO{
 	JdbcTemplate jdbcTemplate;
 	
 	@Override
-	public void save(User user) {
+	public void save(User user) throws UserExistsException
+	{
+		User us = get(user.getEmail(),user.getPassword());
+		if(us != null)
+			throw new UserExistsException();
 		String sql = "INSERT INTO Users (email,first_name,last_name,password,national_id,contact_no,religion,occupation)"
                 	+ " VALUES (?, ?, ?, ?,?,?,?,?)";
 		jdbcTemplate.update(sql,user.getEmail(),user.getFirst_name(),user.getLast_name(),user.getPassword(),user.getNational_id(),user.getContact_no()
@@ -40,9 +44,9 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	@Override
-	public User get(final String email) {
+	public User get(final String email, final String password) {
 		
-		String sql = "SELECT * FROM contact WHERE email=?";
+		String sql = "SELECT * FROM Users WHERE email=?";
 		return jdbcTemplate.query(sql,new ResultSetExtractor<User>()
 		{
 
@@ -59,7 +63,10 @@ public class UserDAOImpl implements UserDAO{
 					 user.setContact_no(rs.getString("contact_no"));
 					 user.setReligion(rs.getString("religion"));
 					 user.setOccupation(rs.getString("occupation"));
-					 return user;
+					 if(password.equals(rs.getString("password")))
+							 return user;
+					 else
+						 return null;
 					 
 				 }
 				return null;

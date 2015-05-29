@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="sdp.ratajo.amaderbari.userpack.dto.User" %>
 <!DOCTYPE html>
 
 <head>
@@ -72,15 +73,15 @@
                 
                 
                 <% 
-	String useremail = (String)session.getAttribute("useremail");
+	User user = (User)session.getAttribute("user");
     String displaylogin="",displayaddflatoption="";
     
-    if(useremail != null)
+    if(user != null)
     {
     	System.out.println("Hiding login");
     	displaylogin = "style=\"display: none;\"";	
     }
-    else if(useremail == null)
+    else if(user == null)
     {
     		displayaddflatoption="style=\"display: none;\"";	
     		System.out.println("Hiding addFlat");
@@ -91,6 +92,7 @@
                 <div class="col-md-3">
                           <form class="form-signin" action ="login" method="post" <%=displaylogin%>> 
                                 <h2 class="form-signin-heading">Please sign in</h2>
+                                <p class="login_error">${error}</p>
                                 <label for="useremail" class="sr-only">Email address</label>
                                 <input type="email" id="useremail" name="useremail" class="form-control" placeholder="Email address" required autofocus>
                                 <label for="password" class="sr-only">Password</label>

@@ -8,7 +8,7 @@
 <title>Search Results</title>
 </head>
 <body>
-	<% Address addr = (Address) request.getAttribute("addr"); %>
-	You were searching for ${addr.getAddressArgument1()} and ${addr.getAddressArgument2() }
+	<%  %>
+	
 </body>
 </html>

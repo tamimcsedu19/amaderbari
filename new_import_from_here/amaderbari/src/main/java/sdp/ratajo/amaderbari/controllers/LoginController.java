@@ -9,15 +9,22 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import sdp.ratajo.amaderbari.userpack.dao.UserDAO;
+import sdp.ratajo.amaderbari.userpack.dto.User;
 
 @Controller
 public class LoginController {
+	@Autowired
+	UserDAO userDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -26,24 +33,29 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST )
 	
-	public String home(Model model,HttpServletRequest req) {
+	public ModelAndView home(ModelAndView model,HttpServletRequest req) {
 		logger.info("In the login controller");
 		
-		
+		model.setViewName("home");
 		
 		HttpSession curSession = req.getSession();
 		
 		String useremail = req.getParameter("useremail");
 		String password = req.getParameter("password");
-		System.out.println(useremail);
-		if(useremail.equals("tamim.tamim1382@gmail.com"))
+		User user = userDAO.get(useremail,password);
+		
+		if(user == null)
 		{
-				curSession.setAttribute("useremail", "tamim.tamim1382@gmail.com");
+			model.addObject("error", "useremail or password Invalid");
+		}
+		else
+		{
+				curSession.setAttribute("user",user);
 				System.out.println("setting session attribute");
 		}
 		System.out.println("in login");
 		
-		return "home";
+		return model;
 	}
 	@RequestMapping(value = "addflat", method = RequestMethod.GET)
 	public String h()
@@ -54,8 +66,8 @@ public class LoginController {
 	public String signout(Model model,HttpServletRequest req) 
 	{
 		HttpSession session = req.getSession();
-		session.removeAttribute("useremail");
-		System.out.println(session.getAttribute("useremail"));
+		session.removeAttribute("user");
+		System.out.println(session.getAttribute("user"));
 		return "home";
 	}
 

@@ -17,8 +17,9 @@ import java.util.List;
 import javax.sql.DataSource;
 public interface UserDAO {
 	
-	public void save(User user);
+	public void save(User user) throws UserExistsException;
 	public void update(User user);
 	public void delete(String email);
-	public User get(String email);
+	public User get(String email,String password);
+	
 }

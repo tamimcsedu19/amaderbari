@@ -41,6 +41,7 @@
                     <div class="form-group">
                         <form:input path="email" type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4"></form:input>
                         <form:errors path="email" cssclass="error"></form:errors>
+                    	${userExistsError}
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">

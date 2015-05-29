@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import sdp.ratajo.amaderbari.dto.addresspack.Address;
 import sdp.ratajo.amaderbari.dto.flatpack.Flat;
 import sdp.ratajo.amaderbari.userpack.dao.UserDAO;
+import sdp.ratajo.amaderbari.userpack.dao.UserExistsException;
 import sdp.ratajo.amaderbari.userpack.dto.User;
 import sdp.ratajo.amaderbari.userpack.dto.UserForm;
 @Controller
@@ -43,7 +44,13 @@ public class SignUpController extends WebMvcConfigurerAdapter {
 		{
 			return new ModelAndView("signup");
 		}
-		userDAO.save(new User(user));
+		try {
+			userDAO.save(new User(user));
+		} catch (UserExistsException e) {
+			modelAndView.setViewName("signup");
+			modelAndView.addObject("userExistsError","Email already exists");
+			return modelAndView;
+		}
 		modelAndView.setViewName("success");
 		System.out.print("Post method of signup controller is executed");
 		return modelAndView;
