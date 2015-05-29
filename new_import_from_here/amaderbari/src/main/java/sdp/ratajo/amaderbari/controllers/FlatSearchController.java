@@ -35,39 +35,41 @@ public class FlatSearchController{
 	@RequestMapping(value = "addressFlatSearch", method = RequestMethod.GET)
 	public ModelAndView addressFlatSearch(ModelAndView modelAndView, HttpServletRequest req) {
 		
-		System.out.println("Searching by Address");
+		System.out.println("Searching by Address...");
 		
 		String country = (String)req.getParameter("country");
 		String addressArgument1 = (String)req.getParameter("addressArgument1");
 		String addressArgument2 = (String)req.getParameter("addressArgument2");
+		System.out.println("IN Search CONTROLLER -> " + country + " " + addressArgument1 + " " + addressArgument2);
 		
 		//AddressLabel addressLabel = getLabel(address.getCountry());
 		// Get address ids from the address
 				
-		List<Integer> addressIds = getAddressIds(country, addressArgument1, addressArgument2);
-		if(addressIds.size() == 0) System.out.println("no address id");
-		else System.out.print(addressIds.get(0));
+		List<Address> addresses = getAddressIds(country, addressArgument1, addressArgument2);
+		if(addresses.size() == 0) System.out.println("no address id");
+		
 				
 		// Get flat ids from the address ids
-		List<Flat> flatIds = null;
-//				if(addressIds.size()>0) flatIds = getFlatIds(addressIds);
-//				else System.out.println("NO FLAT ID");
+		List<Flat> flats = new ArrayList<Flat>();
+		if(addresses.size()>0){
+			for(Address address: addresses){
+				System.out.println("addressId " + address.getAddressId());
+				flats.addAll(getFlatIds(address));
+			}
+		}
 		
-		
-		
-		
-		
-		System.out.println("IN Search CONTROLLER -> " + country + " " + addressArgument1 + " " + addressArgument2);
-		
-		FlatSearcher flatSearcher = new FlatSearcherBy3parameter(country, addressArgument1, addressArgument2);
-		List<Flat> flats = flatSearcher.search();
+		for(Flat flat: flats){
+			System.out.println(flat);
+		}
+
+		modelAndView.addObject(addresses);
+		//modelAndView.addObject(flats);
 		
 		modelAndView.setViewName("showflats");
 		return modelAndView;
 	}
 	
-	
-	private List<Integer> getAddressIds(String country, String addressArgument1, String addressArgument2)
+	private List<Address> getAddressIds(String country, String addressArgument1, String addressArgument2)
 	{	
 		String sql = "SELECT * FROM Addresses" +
 				" Where Country = '" + country +
@@ -75,26 +77,11 @@ public class FlatSearchController{
 				"' and AddressArgument2='" + addressArgument2 +"'";
 		
 		List<Address> addresses = (List<Address>) (Object) addressDao.search(sql);
-		List<Integer> addressIds = new ArrayList<Integer>();
-		for(Address address: addresses){
-			System.out.println("IN controller " + address.getAddressId());
-			addressIds.add(address.getAddressId());
-		}
-		return addressIds;
+		return addresses;
 	}
 	
-	private List<Flat> getFlatIds(List<String> addressIds) {
-		
-		String sqltemplate = "SELECT * FROM Flats  WHERE addressId ='";
-		
-		// get the flats from the adressIds
-		List<Flat> flats = new ArrayList<Flat>();
-		for(String addressId : addressIds){
-			String sql = sqltemplate + addressId + "'";
-			flats.addAll((List<Flat>) (Object)flatDao.search(sql));
-		}
-		
-		return flats;
+	private List<Flat> getFlatIds(Address address) {
+		String sql = "SELECT * FROM Flats  WHERE addressId ='" + address.getAddressId() + "'";
+		return (List<Flat>) (Object)flatDao.search(sql);
 	}
-	
 }

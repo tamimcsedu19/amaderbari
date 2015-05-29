@@ -35,13 +35,13 @@ public class Flat {
 	private String squareFoot;
 	
 	@Min(value=0, message="Can't be less than 0.0")
-	private double rent;
+	private Double rent;
 	
 	public Flat(){}
 
 	public Flat(Integer flatId, Integer addressId, Integer extraFlatDataId, Integer imageId,
 			String ownerEmail, String renterEmail, String mapUrl,
-			String squareFoot, double rent) {
+			String squareFoot, Double rent) {
 		super();
 		this.flatId = flatId;
 		this.addressId = addressId;
@@ -114,12 +114,12 @@ public class Flat {
 	}
 
 
-	public double getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
 
-	public void setRent(double rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 

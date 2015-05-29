@@ -22,7 +22,7 @@ public class AddressLabel {
 		this.extraAddressArgument = extraAddressArgument;
 	}
 
-	public long getLabelId() {
+	public Integer getLabelId() {
 		return labelId;
 	}
 	public void setLabelId(Integer labelId) {

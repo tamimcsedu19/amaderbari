@@ -42,8 +42,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost/ratajo");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setUsername("ratajo");
+        dataSource.setPassword("ratajo");
          
         return dataSource;
     }
@@ -65,7 +65,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     @Bean AddressLabelDao AddressLabelDao(){
     	return new AddressLabelDao();
     }
-    @Bean AddressDao AddressDao(){
+    @Bean 
+    AddressDao AddressDao(){
     	return new AddressDao();
     }
     @Bean ImageDao ImageDao(){
