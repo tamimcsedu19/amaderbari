@@ -10,11 +10,11 @@ public class ExtraDataDao extends CommonDao {
 	@Override
 	boolean save(Object obj) {
 		ExtraFlatData extraData = (ExtraFlatData) obj;
-		String sql = "INSERT INTO ExtraFlatData (extraFlatDataId, type, numOfBed, numOfBath, numOfBalcony,"
+		String sql = "INSERT INTO ExtraFlatData (extraFlatDataId, flatNum, type, numOfBed, numOfBath, numOfBalcony,"
 				+ " numOfDining, numOfDrawing, numOfKitchen)"
-            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try{
-			jdbcTemplate.update(sql, extraData.getExtraFlatDataId(), extraData.getType(), extraData.getNumOfBed(),
+			jdbcTemplate.update(sql, extraData.getExtraFlatDataId(), extraData.getFlatNum(), extraData.getType(), extraData.getNumOfBed(),
 					extraData.getNumOfBath(), extraData.getNumOfBalcony(), extraData.getNumOfDining(), 
 					extraData.getNumOfDrawing(), extraData.getNumOfKitchen());
 		}catch(Exception e){
@@ -27,11 +27,11 @@ public class ExtraDataDao extends CommonDao {
 	@Override
 	boolean update(Object obj) {
 		ExtraFlatData extraData = (ExtraFlatData) obj;
-		String sql = "INSERT INTO ExtraFlatData (extraFlatDataId, type, numOfBed, numOfBath, numOfBalcony,"
+		String sql = "INSERT INTO ExtraFlatData (extraFlatDataId, flatNum, type, numOfBed, numOfBath, numOfBalcony,"
 				+ " numOfDining, numOfDrawing, numOfKitchen)"
-            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            	+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try{
-			jdbcTemplate.update(sql, extraData.getExtraFlatDataId(), extraData.getType(), extraData.getNumOfBed(),
+			jdbcTemplate.update(sql, extraData.getExtraFlatDataId(), extraData.getFlatNum(), extraData.getType(), extraData.getNumOfBed(),
 					extraData.getNumOfBath(), extraData.getNumOfBalcony(), extraData.getNumOfDining(), 
 					extraData.getNumOfDrawing(), extraData.getNumOfKitchen());
 		}catch(Exception e){

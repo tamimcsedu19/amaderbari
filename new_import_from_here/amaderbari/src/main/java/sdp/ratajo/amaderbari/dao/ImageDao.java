@@ -67,7 +67,7 @@ public class ImageDao extends CommonDao {
 				 if (rs.next()) {
 					 Image image = new Image();
 					 
-					 image.setImageId(rs.getLong(0));
+					 image.setImageId(rs.getInt(0));
 					 image.setImageUrl1(rs.getString(1));
 					 image.setImageUrl2(rs.getString(2));
 					 image.setImageUrl3(rs.getString(3));

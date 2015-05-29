@@ -42,15 +42,19 @@ public class FlatController extends MvcConfiguration {
 	}
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.POST)
-	public ModelAndView addFlat(@Valid @ModelAttribute("flat")Flat flat, BindingResult result, ModelAndView modelAndView) {
+	public ModelAndView addFlat(@Valid @ModelAttribute("flat")Flat flat, BindingResult result, ModelAndView modelAndView, HttpServletRequest request) {
 		
 		if(result.hasErrors()){
 			return new ModelAndView("addFlat");
 		}
 		System.out.println(flat);
+
+		
 		flatDao.save(flat);
 		modelAndView.setViewName("addAddress");
 		System.out.println("Post method of Addflat controller is executed");
+		
+		request.getSession().setAttribute("flatId", "1");
 		return new ModelAndView("addAddress","address", new Address());
 	}
 	
@@ -60,7 +64,7 @@ public class FlatController extends MvcConfiguration {
 	}
 	
 	@RequestMapping(value = "addAddress", method = RequestMethod.POST)
-	public ModelAndView addAddress(@Valid Address address , BindingResult result, ModelAndView modelAndView) {
+	public ModelAndView addAddress(@Valid Address address , BindingResult result, ModelAndView modelAndView, HttpServletRequest request) {
 		if(result.hasErrors()){
 			return new ModelAndView("addAddress");
 		}
@@ -77,7 +81,7 @@ public class FlatController extends MvcConfiguration {
 	}
 	
 	@RequestMapping(value = "addImage", method = RequestMethod.POST)
-	public ModelAndView addImage(@Valid Image image , BindingResult result, ModelAndView modelAndView) {
+	public ModelAndView addImage(@Valid Image image , BindingResult result, ModelAndView modelAndView, HttpServletRequest request) {
 		if(result.hasErrors()){
 			return new ModelAndView("addImage");
 		}

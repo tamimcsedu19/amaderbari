@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressLabel {
-	protected long labelId;
+	protected Integer labelId;
 	protected String country;
 	protected String addressArgument1;
 	protected String addressArgument2;
@@ -12,7 +12,7 @@ public class AddressLabel {
 	
 	public AddressLabel(){}
 	
-	public AddressLabel(long labelId, String country, String addressArgument1,
+	public AddressLabel(Integer labelId, String country, String addressArgument1,
 			String addressArgument2, String extraAddressArgument) {
 		super();
 		this.labelId = labelId;
@@ -22,10 +22,10 @@ public class AddressLabel {
 		this.extraAddressArgument = extraAddressArgument;
 	}
 
-	public long getLabelId() {
+	public Integer getLabelId() {
 		return labelId;
 	}
-	public void setLabelId(long labelId) {
+	public void setLabelId(Integer labelId) {
 		this.labelId = labelId;
 	}
 	public String getCountry() {

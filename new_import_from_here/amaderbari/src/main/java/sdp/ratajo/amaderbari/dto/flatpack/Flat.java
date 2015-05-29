@@ -14,10 +14,10 @@ import org.hibernate.validator.constraints.URL;
 
 public class Flat {
 	
-	private long flatId;
-	private long addressId;
-	private long extraFlatDataId;
-	private long imageId;
+	private Integer flatId;
+	private Integer addressId;
+	private Integer extraFlatDataId;
+	private Integer imageId;
 	
 	@Size(min=3, max=50, message="The length of data must be between 3 and 50")
 	@Email(message="not valid email")
@@ -35,13 +35,13 @@ public class Flat {
 	private String squareFoot;
 	
 	@Min(value=0, message="Can't be less than 0.0")
-	private double rent;
+	private Double rent;
 	
 	public Flat(){}
 
-	public Flat(long flatId, long addressId, long extraFlatDataId, long imageId,
+	public Flat(Integer flatId, Integer addressId, Integer extraFlatDataId, Integer imageId,
 			String ownerEmail, String renterEmail, String mapUrl,
-			String squareFoot, double rent) {
+			String squareFoot, Double rent) {
 		super();
 		this.flatId = flatId;
 		this.addressId = addressId;
@@ -54,22 +54,22 @@ public class Flat {
 		this.rent = rent;
 	}
 
-	public long getFlatId() {
+	public Integer getFlatId() {
 		return flatId;
 	}
 
 
-	public void setFlatId(long flatId) {
+	public void setFlatId(Integer flatId) {
 		this.flatId = flatId;
 	}
 
 
-	public long getAddressId() {
+	public Integer getAddressId() {
 		return addressId;
 	}
 
 
-	public void setAddressId(long addressId) {
+	public void setAddressId(Integer addressId) {
 		this.addressId = addressId;
 	}
 
@@ -114,32 +114,32 @@ public class Flat {
 	}
 
 
-	public double getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
 
-	public void setRent(double rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 
 
-	public long getExtraFlatDataId() {
+	public Integer getExtraFlatDataId() {
 		return extraFlatDataId;
 	}
 
 
-	public void setExtraFlatDataId(long extraFlatDataId) {
+	public void setExtraFlatDataId(Integer extraFlatDataId) {
 		this.extraFlatDataId = extraFlatDataId;
 	}
 
 
-	public long getImageId() {
+	public Integer getImageId() {
 		return imageId;
 	}
 
 
-	public void setImageId(long imageId) {
+	public void setImageId(Integer imageId) {
 		this.imageId = imageId;
 	}
 

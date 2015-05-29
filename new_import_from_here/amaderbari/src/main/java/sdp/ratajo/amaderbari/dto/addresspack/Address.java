@@ -6,23 +6,33 @@ import java.util.List;
 // each country will have a table
 
 public class Address extends AddressLabel {
-	private long addressId;
+	private Integer addressId;
 	
 	public Address(){}
 	
-	public Address(long addressId, long labelId, String country, String addressArgument1,
+	public Address(Integer addressId, Integer labelId, String country, String addressArgument1,
 			String addressArgument2, String extraAddressArgument) {
 		super(labelId, country, addressArgument1, addressArgument2,
 				extraAddressArgument);
 		this.addressId = addressId;
 	}
 
-	public long getAddressId() {
+	public Integer getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(long addressId) {
+	public void setAddressId(Integer addressId) {
 		this.addressId = addressId;
 	}
+
+	@Override
+	public String toString() {
+		return "Address [addressId=" + addressId + ", labelId=" + labelId
+				+ ", country=" + country + ", addressArgument1="
+				+ addressArgument1 + ", addressArgument2=" + addressArgument2
+				+ ", extraAddressArgument=" + extraAddressArgument + "]";
+	}
+	
+	
 	
 }

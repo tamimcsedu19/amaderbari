@@ -85,10 +85,10 @@ public class FlatDao extends CommonDao {
 					DataAccessException {
 				 if (rs.next()) {
 					 Flat flat = new Flat();
-					 flat.setFlatId(rs.getLong(0));
-					 flat.setAddressId(rs.getLong(1));
-					 flat.setExtraFlatDataId(rs.getLong(2));
-					 flat.setImageId(rs.getLong(3));
+					 flat.setFlatId(rs.getInt(0));
+					 flat.setAddressId(rs.getInt(1));
+					 flat.setExtraFlatDataId(rs.getInt(2));
+					 flat.setImageId(rs.getInt(3));
 					 
 					 flat.setOwnerEmail(rs.getString(4));
 					 flat.setRenterEmail(rs.getString(5));
@@ -111,15 +111,15 @@ public class FlatDao extends CommonDao {
 		for (Map row : rows) {
 			Flat object = new Flat();
 			
-			object.setFlatId((Long)row.get(0));
-			object.setAddressId((Long)row.get(1));
-			object.setExtraFlatDataId((Long)row.get(2));
-			object.setImageId((Long)row.get(3));
-			object.setOwnerEmail((String)row.get(4));
-			object.setRenterEmail((String)row.get(5));
-			object.setMapUrl((String)row.get(6));
-			object.setSquareFoot((String)row.get(7));
-			object.setRent((Double)row.get(8));
+			object.setFlatId((Integer)row.get("FlatID"));
+			object.setAddressId((Integer)row.get("AddressId"));
+			object.setExtraFlatDataId((Integer)row.get("ExtraFlatDataId"));
+			object.setImageId((Integer)row.get("ImageId"));
+			object.setOwnerEmail((String)row.get("OwnerEmail"));
+			object.setRenterEmail((String)row.get("RenterEmail"));
+			object.setMapUrl((String)row.get("MapUrl"));
+			object.setSquareFoot((String)row.get("SquareFoot"));
+			object.setRent((Double)row.get("Rent"));
 			 
 			objects.add(object);
 		}

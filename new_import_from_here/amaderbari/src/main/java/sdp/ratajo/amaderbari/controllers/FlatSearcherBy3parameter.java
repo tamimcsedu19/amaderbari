@@ -1,4 +1,4 @@
-package sdp.ratajo.amaderbari.dao.search;
+package sdp.ratajo.amaderbari.controllers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import sdp.ratajo.amaderbari.dto.*;
 import sdp.ratajo.amaderbari.dto.flatpack.*;
 import sdp.ratajo.amaderbari.dto.addresspack.*;
 
-public class FlatSearcherBy3parameter extends MvcConfiguration implements FlatSearcher {
+public class FlatSearcherBy3parameter implements FlatSearcher {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
@@ -49,7 +49,10 @@ public class FlatSearcherBy3parameter extends MvcConfiguration implements FlatSe
 	@Override
 	public List<Flat> search() {
 	
-		System.out.println("I am implementing the searching of Flats by city and division");
+		System.out.println("Searching by Address");
+		
+		if(addressDao == null) System.out.println("null found");
+		else System.out.println("null not found");
 		
 		//AddressLabel addressLabel = getLabel(address.getCountry());
 		// Get address ids from the address
@@ -89,12 +92,17 @@ public class FlatSearcherBy3parameter extends MvcConfiguration implements FlatSe
 				" and AddressArgument2"  + "='" + address.getAddressArgument2() +"'";
 		
 		List<String> addressIds = new ArrayList<String>(); //(List<String>) (Object)
+<<<<<<< HEAD:new_import_from_here/amaderbari/src/main/java/sdp/ratajo/amaderbari/controllers/FlatSearcherBy3parameter.java
+		if(addressDao == null) System.out.print("null found");
+		else addressDao.check();
+=======
 		if(addressDao == null)
 		{
 			System.out.print("null");
 		}
 		else
 			addressDao.check();
+>>>>>>> 9de54d344525cebe32e4c8766a4591d2d4d107cd:new_import_from_here/amaderbari/src/main/java/sdp/ratajo/amaderbari/dao/search/FlatSearcherBy3parameter.java
 		return addressIds;
 	}
 	

@@ -1,8 +1,6 @@
 package sdp.ratajo.amaderbari.config;
 import sdp.ratajo.amaderbari.dao.*;
 import sdp.ratajo.amaderbari.dao.search.*;
-import sdp.ratajo.amaderbari.dao.search.FlatSearcher;
-import sdp.ratajo.amaderbari.dao.search.FlatSearcherBy3parameter;
 import org.springframework.jdbc.core.*;
 
 import sdp.ratajo.amaderbari.bll.*; 
