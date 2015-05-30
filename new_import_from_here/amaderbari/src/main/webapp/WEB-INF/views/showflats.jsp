@@ -1,3 +1,6 @@
+<%@page import="org.springframework.web.servlet.ModelAndView"%>
+<%@page import="java.util.List"%>
+<%@page import="sdp.ratajo.amaderbari.dto.flatpack.Flat"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="sdp.ratajo.amaderbari.dto.addresspack.Address"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,7 +14,7 @@
 <body>
 
 <%
-    for(int i=0;i<${flats}.size();++i)
+    for(int i=0;i<flats.size();++i)
     {
         out.println($flats.get(i));
     }

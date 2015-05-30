@@ -1,7 +1,21 @@
 package sdp.ratajo.amaderbari.controllers;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -39,12 +53,14 @@ public class FlatController extends MvcConfiguration {
 		Address address = (Address) request.getSession().getAttribute("address");
 		System.out.println("In save all\n" + address);
 		address = addressDao.getAddress(address);
+		request.getSession().setAttribute("address", address);
 		
 		System.out.println("in save all" + address.getAddressId());
 		
 		Flat flat = (Flat) request.getSession().getAttribute("flat");
 		flat.setAddressId(address.getAddressId());
-		flat = flatDao.getFlat(flat);	
+		flat = flatDao.getFlat(flat);
+		request.getSession().setAttribute("flat", flat);
 	}
 	
 	@RequestMapping(value = "addFlat", method = RequestMethod.GET)
@@ -91,16 +107,36 @@ public class FlatController extends MvcConfiguration {
 	}
 	
 	@RequestMapping(value = "addImage", method = RequestMethod.POST)
-	public ModelAndView addImage(@Valid Image image , BindingResult result, ModelAndView modelAndView, HttpServletRequest request) {
-		if(result.hasErrors()){
-			return new ModelAndView("addImage");
-		}
-		System.out.println(image);
-		addressDao.save(image);
+	public ModelAndView addImage(HttpServletRequest request, ModelAndView modelAndView) {
+		
+		String in = (String) request.getAttribute("up1");
+		//String in = "/home/jony/Pictures/flat.png";
+		System.out.println(in);
+		
+		Integer flatId = ((Flat) request.getSession().getAttribute("flat")).getFlatId();
+		
+		String out = "/home/jony/amaderbari/new_import_from_here/amaderbari/src/main/resources/images/" + flatId + "_.png";
+		write(in, out);
+		
 		modelAndView.setViewName("success");
 		System.out.println("Post method of AddImage controller is executed");
 		return modelAndView;
 	}
+	
+	void write(String inpath, String outpath){
+			BufferedImage bImage = null;
+			try {
+				  File initialImage = new File(inpath);
+				  bImage = ImageIO.read(initialImage);
+				  ImageIO.write(bImage, "png", new File(outpath));
+
+			} catch (Exception e) {
+				  System.out.println("Exception occured :" + e.getMessage());
+			}
+			
+			System.out.println("Images were written succesfully.");
+	}
+	
 	@RequestMapping(value = "showflats", method = RequestMethod.GET)
 	public ModelAndView showUserFlats(ModelAndView model,HttpServletRequest request)
 	{
