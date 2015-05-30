@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function() {
     $('.button-checkbox').each(function () {
     	alert("I am an alert box");
         // Settings
@@ -25,12 +25,13 @@ $(function () {
             updateDisplay();
         });
         
-        //copyme
-        function CopyMe(oFileInput, sTargetID) {
+      //copyme
+     	function CopyMe(oFileInput, sTargetID) {
             var arrTemp = oFileInput.value.split('\\');
+            confirm("SOMTHING " + arrTemp);
             document.getElementById(sTargetID).value = arrTemp[arrTemp.length - 1];
         }
-
+     	
         // Actions
         function updateDisplay() {
             var isChecked = $checkbox.is(':checked');

@@ -109,8 +109,8 @@ public class FlatController extends MvcConfiguration {
 	@RequestMapping(value = "addImage", method = RequestMethod.POST)
 	public ModelAndView addImage(HttpServletRequest request, ModelAndView modelAndView) {
 		
-		String in = (String) request.getAttribute("up1");
-		//String in = "/home/jony/Pictures/flat.png";
+		//String in = (String) request.getAttribute("image1");
+		String in = "/home/jony/Pictures/phpmyadmin.png";
 		System.out.println(in);
 		
 		Integer flatId = ((Flat) request.getSession().getAttribute("flat")).getFlatId();

@@ -51,10 +51,16 @@ public class FlatSearchController{
 				
 		// Get flat ids from the address ids
 		List<Flat> flats = new ArrayList<Flat>();
+		List<Flat> tmps = new ArrayList<Flat>();
+		List<Address> adds = new ArrayList<Address>();
 		if(addresses.size()>0){
 			for(Address address: addresses){
 				System.out.println("addressId " + address.getAddressId());
-				flats.addAll(getFlatIds(address));
+				tmps = getFlatIds(address);
+				for(int i=0; i<tmps.size(); i++){
+					adds.add(address);
+				}
+				flats.addAll(tmps);
 			}
 		}
 		
@@ -62,6 +68,8 @@ public class FlatSearchController{
 			System.out.println(flat);
 		}
 
+		req.setAttribute("flats", flats);
+		req.setAttribute("address", adds);
 		modelAndView.addObject(addresses);
 		//modelAndView.addObject(flats);
 		
